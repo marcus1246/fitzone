@@ -6,6 +6,7 @@
 <title>FitZone Dashboard</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -14,89 +15,165 @@ font-family:Arial,sans-serif;
 }
 
 body{
+display:flex;
+height:100vh;
 background:#0f172a;
 color:white;
-padding:30px;
 }
 
-h1{
+/* Sidebar */
+
+.sidebar{
+width:240px;
+background:#111827;
+padding:20px;
+display:flex;
+flex-direction:column;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
 color:#22c55e;
-margin-bottom:20px;
+text-align:center;
+margin-bottom:40px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:30px;
+.sidebar button{
+background:none;
+border:none;
+color:white;
+padding:15px;
+font-size:17px;
+text-align:left;
+cursor:pointer;
+border-radius:10px;
+margin-bottom:10px;
+transition:.3s;
+}
+
+.sidebar button:hover{
+background:#22c55e;
+}
+
+/* Main Content */
+
+.main{
+flex:1;
+padding:40px;
+overflow:auto;
+}
+
+.page{
+display:none;
+}
+
+#dashboard{
+display:block;
 }
 
 .card{
 background:#1e293b;
 padding:20px;
 border-radius:15px;
-box-shadow:0 0 10px rgba(0,0,0,.3);
-}
-
-.card h2{
-color:#22c55e;
-margin-bottom:10px;
-}
-
-button{
 margin-top:20px;
-padding:12px 20px;
-background:#22c55e;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:16px;
+box-shadow:0 0 15px rgba(0,0,0,.3);
 }
 
-button:hover{
-background:#16a34a;
-}
 </style>
 </head>
 
 <body>
 
-<h1>💪 Welcome to FitZone!</h1>
+<div class="sidebar">
 
-<p>You're logged in successfully.</p>
+<div class="logo">
+💪 FitZone
+</div>
 
-<div class="grid">
+<button onclick="showPage('dashboard')">🏠 Dashboard</button>
+
+<button onclick="showPage('workouts')">💪 Workouts</button>
+
+<button onclick="showPage('progress')">📈 Progress</button>
+
+<button onclick="showPage('nutrition')">🥗 Nutrition</button>
+
+<button onclick="showPage('ai')">🤖 AI Coach</button>
+
+<button onclick="showPage('profile')">👤 Profile</button>
+
+<button onclick="logout()">🚪 Logout</button>
+
+</div>
+
+<div class="main">
+
+<div id="dashboard" class="page">
+
+<h1>Welcome Back! 👋</h1>
 
 <div class="card">
-<h2>🔥 Today's Workout</h2>
+<h2>🔥 Workout Streak</h2>
+<p>7 Days</p>
+</div>
+
+<div class="card">
+<h2>🏋️ Today's Workout</h2>
 <p>Chest & Triceps</p>
 </div>
 
 <div class="card">
-<h2>📊 Progress</h2>
-<p>Workout Streak: 7 Days</p>
-</div>
-
-<div class="card">
-<h2>🥗 Nutrition</h2>
-<p>Calories: 1850 / 2300</p>
-</div>
-
-<div class="card">
-<h2>🤖 AI Coach</h2>
-<p>Create your perfect workout plan.</p>
+<h2>🥗 Calories</h2>
+<p>1850 / 2300 kcal</p>
 </div>
 
 </div>
 
-<button onclick="logout()">Logout</button>
+<div id="workouts" class="page">
+<h1>💪 Workouts</h1>
+</div>
+
+<div id="progress" class="page">
+<h1>📈 Progress</h1>
+</div>
+
+<div id="nutrition" class="page">
+<h1>🥗 Nutrition</h1>
+</div>
+
+<div id="ai" class="page">
+<h1>🤖 AI Coach</h1>
+</div>
+
+<div id="profile" class="page">
+<h1>👤 Profile</h1>
+</div>
+
+</div>
 
 <script>
-function logout(){
-localStorage.removeItem("loggedIn");
-window.location.href="login.html";
+
+function showPage(page){
+
+let pages=document.querySelectorAll(".page");
+
+pages.forEach(function(p){
+p.style.display="none";
+});
+
+document.getElementById(page).style.display="block";
+
 }
+
+function logout(){
+
+localStorage.removeItem("loggedIn");
+
+window.location.href="login.html";
+
+}
+
 </script>
 
 </body>
