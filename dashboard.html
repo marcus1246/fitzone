@@ -1431,3 +1431,469 @@ document.getElementById("exerciseBox").style.display="none";
 
 
 </script>
+
+
+
+
+
+<script>
+
+
+
+// GET LOGGED IN USER
+
+
+
+let currentUser = JSON.parse(
+
+localStorage.getItem("currentUser")
+
+);
+
+
+
+
+
+if(!currentUser){
+
+
+window.location.href="login.html";
+
+
+}
+
+
+
+
+
+
+
+
+// LOAD USER DATA
+
+
+
+function loadUser(){
+
+
+
+document.getElementById("username").innerHTML =
+
+currentUser.username;
+
+
+
+document.getElementById("profileName").innerHTML =
+
+currentUser.username;
+
+
+
+document.getElementById("userHeight").innerHTML =
+
+currentUser.height + " cm";
+
+
+
+document.getElementById("userWeight").innerHTML =
+
+currentUser.weight + " kg";
+
+
+
+document.getElementById("xp").innerHTML =
+
+currentUser.xp + " XP";
+
+
+
+document.getElementById("level").innerHTML =
+
+"Level " + currentUser.level;
+
+
+
+document.getElementById("awards").innerHTML =
+
+currentUser.awards.length + " Badges";
+
+
+
+}
+
+
+
+
+
+loadUser();
+
+
+
+
+
+
+
+
+
+// SAVE USER
+
+
+
+function saveUser(){
+
+
+
+localStorage.setItem(
+
+"currentUser",
+
+JSON.stringify(currentUser)
+
+);
+
+
+
+
+
+let users = JSON.parse(
+
+localStorage.getItem("users")
+
+) || [];
+
+
+
+
+
+let found=false;
+
+
+
+
+
+users.forEach(function(user,index){
+
+
+
+if(user.email === currentUser.email){
+
+
+users[index]=currentUser;
+
+
+found=true;
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+if(!found){
+
+
+users.push(currentUser);
+
+
+}
+
+
+
+
+
+
+localStorage.setItem(
+
+"users",
+
+JSON.stringify(users)
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// FINISH WORKOUT XP
+
+
+
+function finishWorkout(){
+
+
+
+currentUser.xp += workoutXP;
+
+
+
+
+
+// LEVEL SYSTEM
+
+
+
+if(currentUser.xp >= 500){
+
+
+currentUser.level=2;
+
+
+}
+
+
+
+if(currentUser.xp >= 1000){
+
+
+currentUser.level=3;
+
+
+}
+
+
+
+if(currentUser.xp >= 2000){
+
+
+currentUser.level=4;
+
+
+}
+
+
+
+
+
+
+
+
+// AWARD
+
+
+
+if(!currentUser.awards.includes("🏆 Workout Champion")){
+
+
+currentUser.awards.push(
+
+"🏆 Workout Champion"
+
+);
+
+
+}
+
+
+
+
+
+
+
+saveUser();
+
+
+
+loadUser();
+
+
+
+
+
+alert(
+
+"🏆 Workout Complete!\n+" +
+
+workoutXP +
+
+" XP earned"
+
+);
+
+
+
+
+
+document.getElementById("exerciseBox").style.display="none";
+
+
+
+loadLeaderboard();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+// REAL LEADERBOARD
+
+
+
+function loadLeaderboard(){
+
+
+
+let users = JSON.parse(
+
+localStorage.getItem("users")
+
+) || [];
+
+
+
+
+
+
+users.sort(function(a,b){
+
+
+return b.xp-a.xp;
+
+
+});
+
+
+
+
+
+
+let output="";
+
+
+
+
+
+
+users.slice(0,100).forEach(function(user,index){
+
+
+
+let badge="🥉 Bronze Fighter";
+
+
+
+if(index < 3){
+
+
+badge="🥇 Gold Champion";
+
+
+}
+
+else if(index < 7){
+
+
+badge="🥈 Silver Athlete";
+
+
+}
+
+
+
+
+
+
+output +=
+
+
+
+"<div class='card'>" +
+
+
+(index+1) +
+
+". " +
+
+user.username +
+
+" - " +
+
+user.xp +
+
+" XP<br>" +
+
+badge +
+
+"</div>";
+
+
+
+
+});
+
+
+
+
+
+
+
+document.getElementById("leaderList").innerHTML = output;
+
+
+
+}
+
+
+
+
+
+loadLeaderboard();
+
+
+
+
+
+
+
+
+
+// LOGOUT
+
+
+
+function logout(){
+
+
+
+localStorage.removeItem("currentUser");
+
+
+
+window.location.href="login.html";
+
+
+}
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
