@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>FitZone - Sign Up</title>
 
+
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -13,95 +18,300 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
+
 body{
+
 height:100vh;
+
 display:flex;
+
 justify-content:center;
+
 align-items:center;
+
 background:linear-gradient(135deg,#0f172a,#1e293b);
+
 }
+
+
 
 .container{
-width:360px;
+
+width:380px;
+
 background:#1f2937;
+
 padding:35px;
+
 border-radius:15px;
+
 box-shadow:0 0 20px rgba(34,197,94,.4);
+
 }
+
+
 
 h1{
+
 text-align:center;
+
 color:#22c55e;
+
 margin-bottom:25px;
+
 }
+
+
+
 
 input{
+
 width:100%;
+
 padding:14px;
-margin:10px 0;
+
+margin:8px 0;
+
 border:none;
+
 border-radius:8px;
+
 font-size:16px;
+
 }
+
+
+
+
 
 button{
+
 width:100%;
+
 padding:14px;
+
 background:#22c55e;
+
 color:white;
+
 border:none;
+
 border-radius:8px;
+
 font-size:16px;
+
 cursor:pointer;
+
+margin-top:10px;
+
 }
+
+
 
 button:hover{
+
 background:#16a34a;
+
 }
+
+
+
 
 p{
+
 text-align:center;
-margin-top:20px;
+
 color:white;
+
+margin-top:20px;
+
 }
 
+
+
 a{
+
 color:#22c55e;
+
 text-decoration:none;
+
 font-weight:bold;
+
 }
+
+
 </style>
+
+
 </head>
+
+
+
 <body>
+
+
 
 <div class="container">
 
-<h1>Create Account</h1>
 
-<input type="email" id="email" placeholder="Email">
 
-<input type="password" id="password" placeholder="Password">
+<h1>Create Account 💪</h1>
 
-<button onclick="signup()">Create Account</button>
 
-<p>Already have an account?
-<a href="login.html">Login</a>
+
+<input 
+type="text" 
+id="username" 
+placeholder="Username">
+
+
+
+<input 
+type="email" 
+id="email" 
+placeholder="Email">
+
+
+
+<input 
+type="password" 
+id="password" 
+placeholder="Password">
+
+
+
+<input 
+type="number" 
+id="height" 
+placeholder="Height (cm)">
+
+
+
+<input 
+type="number" 
+id="weight" 
+placeholder="Weight (kg)">
+
+
+
+
+
+<button onclick="signup()">
+
+Create Account
+
+</button>
+
+
+
+
+
+<p>
+
+Already have an account?
+
+<a href="login.html">
+Login
+</a>
+
 </p>
+
+
 
 </div>
 
+
+
+
+
+
+
 <script>
+
+
 function signup(){
 
-localStorage.setItem("email",document.getElementById("email").value);
-localStorage.setItem("password",document.getElementById("password").value);
 
-alert("Account created successfully!");
+
+let user={
+
+
+username:document.getElementById("username").value,
+
+
+email:document.getElementById("email").value,
+
+
+password:document.getElementById("password").value,
+
+
+height:document.getElementById("height").value,
+
+
+weight:document.getElementById("weight").value,
+
+
+xp:0,
+
+
+level:1,
+
+
+awards:[]
+
+
+};
+
+
+
+
+
+if(
+user.username=="" ||
+user.email=="" ||
+user.password==""
+){
+
+alert("Please fill all details");
+
+return;
+
+}
+
+
+
+
+
+
+
+localStorage.setItem(
+
+"fitUser",
+
+JSON.stringify(user)
+
+);
+
+
+
+
+
+alert("Account created successfully! 🎉");
+
+
 
 window.location.href="login.html";
 
+
+
 }
+
+
+
 </script>
 
+
+
 </body>
+
 </html>
