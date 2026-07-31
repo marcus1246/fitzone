@@ -56,19 +56,15 @@ margin-bottom:35px;
 
 width:100%;
 padding:15px;
-
 margin:7px 0;
 
+border:none;
 background:none;
 
-border:none;
-
 color:white;
-
 font-size:16px;
 
 text-align:left;
-
 cursor:pointer;
 
 border-radius:10px;
@@ -76,13 +72,11 @@ border-radius:10px;
 }
 
 
-
 .sidebar button:hover{
 
 background:#22c55e;
 
 }
-
 
 
 
@@ -104,7 +98,6 @@ display:none;
 }
 
 
-
 #dashboard{
 
 display:block;
@@ -114,10 +107,10 @@ display:block;
 
 
 
+
 .card{
 
 background:#1e293b;
-
 padding:20px;
 
 border-radius:15px;
@@ -203,8 +196,6 @@ gap:20px;
 
 
 
-
-
 .workout-card{
 
 background:#334155;
@@ -213,41 +204,20 @@ padding:20px;
 
 border-radius:15px;
 
-}
-
-
-
-
-video{
-
-width:100%;
-
-border-radius:10px;
-
-}
-
-
-
-select{
-
-width:100%;
-
-padding:15px;
-
-border-radius:10px;
+text-align:center;
 
 }
 
 
 
 
-.video-box{
+.workout-image{
 
-height:200px;
+height:120px;
 
 background:#020617;
 
-border-radius:15px;
+border-radius:10px;
 
 display:flex;
 
@@ -255,9 +225,12 @@ align-items:center;
 
 justify-content:center;
 
-font-size:25px;
+font-size:50px;
+
+margin-bottom:15px;
 
 }
+
 
 
 
@@ -266,19 +239,19 @@ font-size:25px;
 
 font-size:60px;
 
-text-align:center;
-
 color:#22c55e;
+
+text-align:center;
 
 margin:20px;
 
 }
 
 
+
 </style>
 
 </head>
-
 
 
 <body>
@@ -295,41 +268,59 @@ margin:20px;
 </div>
 
 
-
 <button onclick="showPage('dashboard')">
+
 🏠 Dashboard
+
 </button>
+
 
 
 <button onclick="showPage('workouts')">
+
 💪 Workouts
+
 </button>
+
 
 
 <button onclick="showPage('progress')">
+
 📈 Progress
+
 </button>
+
 
 
 <button onclick="showPage('nutrition')">
+
 🥗 Nutrition
+
 </button>
+
 
 
 <button onclick="showPage('ai')">
+
 🤖 AI Coach
+
 </button>
+
 
 
 <button onclick="showPage('profile')">
+
 👤 Profile
+
 </button>
+
 
 
 <button onclick="logout()">
-🚪 Logout
-</button>
 
+🚪 Logout
+
+</button>
 
 
 </div>
@@ -345,7 +336,6 @@ margin:20px;
 <div id="dashboard" class="page">
 
 
-
 <h1><b>Are You Ready? 💪🔥</b></h1>
 
 
@@ -356,38 +346,50 @@ margin:20px;
 
 
 <div class="stat">
+
 <h2>🔥</h2>
+
 <p>Workout Streak</p>
+
 <h3>7 Days</h3>
+
 </div>
 
 
 
-
 <div class="stat">
+
 <h2>🏆</h2>
+
 <p>Awards</p>
+
 <h3>3 Badges</h3>
+
 </div>
 
 
 
-
 <div class="stat">
+
 <h2>📏</h2>
-<p>Height</p>
-<h3>175 cm</h3>
-</div>
 
+<p>Height</p>
+
+<h3>175 cm</h3>
+
+</div>
 
 
 
 <div class="stat">
-<h2>⚖️</h2>
-<p>Weight</p>
-<h3>70 kg</h3>
-</div>
 
+<h2>⚖️</h2>
+
+<p>Weight</p>
+
+<h3>70 kg</h3>
+
+</div>
 
 
 </div>
@@ -406,583 +408,3 @@ margin:20px;
 
 
 </div>
-
-<!-- WORKOUTS PAGE -->
-
-<div id="workouts" class="page">
-
-
-<h1>💪 Workout Center</h1>
-
-
-<div class="card">
-
-<h2>Choose Your Workout</h2>
-
-
-
-<div class="workout-grid">
-
-
-
-<div class="workout-card">
-
-
-<h2>💪 Muscle Building</h2>
-
-
-<video controls>
-
-<source src="muscle-preview.mp4">
-
-</video>
-
-
-<p>⏱ Duration: 40 Minutes</p>
-
-<p>⭐ Difficulty: Medium</p>
-
-<p>🔥 Calories: 350</p>
-
-
-<button class="action" onclick="selectWorkout('muscle')">
-
-Start Workout
-
-</button>
-
-
-</div>
-
-
-
-
-
-<div class="workout-card">
-
-
-<h2>🔥 Fat Loss</h2>
-
-
-<video controls>
-
-<source src="fatloss-preview.mp4">
-
-</video>
-
-
-<p>⏱ Duration: 30 Minutes</p>
-
-<p>⭐ Difficulty: Hard</p>
-
-<p>🔥 Calories: 450</p>
-
-
-<button class="action" onclick="selectWorkout('fatloss')">
-
-Start Workout
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-<div class="workout-card">
-
-
-<h2>🟢 Beginner</h2>
-
-
-<video controls>
-
-<source src="beginner-preview.mp4">
-
-</video>
-
-
-<p>⏱ Duration: 20 Minutes</p>
-
-<p>⭐ Difficulty: Easy</p>
-
-<p>🔥 Calories: 200</p>
-
-
-<button class="action" onclick="selectWorkout('beginner')">
-
-Start Workout
-
-</button>
-
-
-</div>
-
-
-
-
-<div class="workout-card">
-
-
-<h2>🏠 Home Workout</h2>
-
-
-<video controls>
-
-<source src="home-preview.mp4">
-
-</video>
-
-
-<p>⏱ Duration: 35 Minutes</p>
-
-<p>⭐ Difficulty: Medium</p>
-
-<p>🔥 Calories: 300</p>
-
-
-<button class="action" onclick="selectWorkout('home')">
-
-Start Workout
-
-</button>
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="card" id="exerciseBox" style="display:none;">
-
-
-<button class="action" onclick="backWorkout()">
-
-⬅ Back
-
-</button>
-
-
-
-<h2 id="exerciseTitle"></h2>
-
-
-
-<div class="video-box">
-
-🎥 Exercise Demo Video
-
-</div>
-
-
-
-
-<h2 id="exerciseName"></h2>
-
-
-<p id="exerciseInfo"></p>
-
-
-
-
-<div id="timer">
-
-30
-
-</div>
-
-
-
-
-<button class="action" onclick="startTimer()">
-
-▶ Start
-
-</button>
-
-
-
-<button class="action" onclick="pauseTimer()">
-
-⏸ Pause
-
-</button>
-
-
-
-<button class="action" id="nextBtn" onclick="nextExercise()" style="display:none;">
-
-➡ Next
-
-</button>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div id="progress" class="page">
-
-
-<h1>📈 Progress</h1>
-
-
-<div class="card">
-
-<p>Completed Workouts: 24</p>
-
-<p>Level: Beginner</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div id="nutrition" class="page">
-
-
-<h1>🥗 Nutrition</h1>
-
-
-<div class="card">
-
-<p>Nutrition calculator coming soon</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div id="ai" class="page">
-
-
-<h1>🤖 AI Coach</h1>
-
-
-<div class="card">
-
-<p>AI Workout Planner coming soon</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div id="profile" class="page">
-
-
-<h1>👤 Profile</h1>
-
-
-<div class="card">
-
-<p>User Profile</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-<script>
-
-
-function showPage(page){
-
-
-document.querySelectorAll(".page").forEach(function(p){
-
-p.style.display="none";
-
-});
-
-
-document.getElementById(page).style.display="block";
-
-
-}
-
-
-
-
-
-let workouts={
-
-
-muscle:[
-
-["Push Ups","3 sets x 12 reps",30],
-
-["Bench Press","4 sets x 10 reps",45],
-
-["Chest Fly","3 sets x 12 reps",30]
-
-],
-
-
-
-fatloss:[
-
-["Jumping Jacks","45 seconds",25],
-
-["Burpees","30 seconds",35],
-
-["Mountain Climbers","45 seconds",25]
-
-],
-
-
-
-beginner:[
-
-["Push Ups","10 reps",30],
-
-["Squats","15 reps",45],
-
-["Plank","30 seconds",25]
-
-],
-
-
-
-home:[
-
-["Squats","15 reps",45],
-
-["Push Ups","10 reps",30],
-
-["Plank","30 seconds",25]
-
-]
-
-
-};
-
-
-
-
-
-let currentWorkout=[];
-
-let index=0;
-
-let time=0;
-
-let timer;
-
-
-
-
-
-function selectWorkout(type){
-
-
-currentWorkout=workouts[type];
-
-index=0;
-
-
-document.getElementById("exerciseBox").style.display="block";
-
-
-showExercise();
-
-
-}
-
-
-
-
-
-function showExercise(){
-
-
-let ex=currentWorkout[index];
-
-
-document.getElementById("exerciseTitle").innerHTML="🏋️ Workout";
-
-
-document.getElementById("exerciseName").innerHTML=ex[0];
-
-
-document.getElementById("exerciseInfo").innerHTML=ex[1];
-
-
-time=ex[2];
-
-
-document.getElementById("timer").innerHTML=time;
-
-
-document.getElementById("nextBtn").style.display="none";
-
-
-}
-
-
-
-
-
-
-function startTimer(){
-
-
-clearInterval(timer);
-
-
-
-timer=setInterval(function(){
-
-
-time--;
-
-
-document.getElementById("timer").innerHTML=time;
-
-
-
-if(time<=0){
-
-
-clearInterval(timer);
-
-
-alert("Rest Finished 🔥");
-
-
-document.getElementById("nextBtn").style.display="block";
-
-
-}
-
-
-},1000);
-
-
-
-}
-
-
-
-
-
-function pauseTimer(){
-
-
-clearInterval(timer);
-
-
-}
-
-
-
-
-
-function nextExercise(){
-
-
-index++;
-
-
-if(index>=currentWorkout.length){
-
-
-alert("Workout Completed 🏆");
-
-
-return;
-
-}
-
-
-showExercise();
-
-
-}
-
-
-
-
-
-
-function backWorkout(){
-
-
-document.getElementById("exerciseBox").style.display="none";
-
-
-}
-
-
-
-
-
-
-function logout(){
-
-
-window.location.href="login.html";
-
-
-}
-
-
-
-</script>
-
-
-
-</body>
-
-</html>
