@@ -159,6 +159,7 @@ text-align:center;
 
 
 
+
 .stat h2{
 
 font-size:40px;
@@ -245,6 +246,7 @@ margin-bottom:15px;
 
 
 
+
 #timer{
 
 font-size:60px;
@@ -282,51 +284,37 @@ margin:20px;
 
 
 <button onclick="showPage('dashboard')">
-
 🏠 Dashboard
-
 </button>
 
 
 <button onclick="showPage('workouts')">
-
 💪 Workouts
-
 </button>
 
 
 <button onclick="showPage('progress')">
-
 📈 Progress
-
 </button>
 
 
 <button onclick="showPage('nutrition')">
-
 🥗 Nutrition
-
 </button>
 
 
 <button onclick="showPage('ai')">
-
 🤖 AI Coach
-
 </button>
 
 
 <button onclick="showPage('profile')">
-
 👤 Profile
-
 </button>
 
 
 <button onclick="logout()">
-
 🚪 Logout
-
 </button>
 
 
@@ -366,7 +354,6 @@ margin:20px;
 
 
 
-
 <div class="stat">
 
 <h2>🏆</h2>
@@ -380,7 +367,6 @@ margin:20px;
 
 
 
-
 <div class="stat">
 
 <h2>📏</h2>
@@ -390,7 +376,6 @@ margin:20px;
 <h3>175 cm</h3>
 
 </div>
-
 
 
 
@@ -423,664 +408,5 @@ margin:20px;
 
 
 
-</div>
-<!-- WORKOUTS PAGE -->
-
-<div id="workouts" class="page">
-
-
-<h1>💪 Workout Center</h1>
-
-
-<div class="card">
-
-<h2>Choose Your Workout</h2>
-
-
-<div class="workout-grid">
-
-
-
-<div class="workout-card">
-
-<div class="workout-image">💪</div>
-
-<h2>Muscle Building</h2>
-
-<p>⏱ Duration: 15 Minutes</p>
-<p>⭐ Difficulty: Medium</p>
-<p>🔥 Calories: 200</p>
-
-<button class="action" onclick="selectWorkout('muscle')">
-Start Workout
-</button>
 
 </div>
-
-
-
-
-
-<div class="workout-card">
-
-<div class="workout-image">🔥</div>
-
-<h2>Fat Loss</h2>
-
-<p>⏱ Duration: 12 Minutes</p>
-<p>⭐ Difficulty: Hard</p>
-<p>🔥 Calories: 180</p>
-
-<button class="action" onclick="selectWorkout('fatloss')">
-Start Workout
-</button>
-
-</div>
-
-
-
-
-
-<div class="workout-card">
-
-<div class="workout-image">🟢</div>
-
-<h2>Beginner</h2>
-
-<p>⏱ Duration: 10 Minutes</p>
-<p>⭐ Difficulty: Easy</p>
-<p>🔥 Calories: 120</p>
-
-<button class="action" onclick="selectWorkout('beginner')">
-Start Workout
-</button>
-
-</div>
-
-
-
-
-
-<div class="workout-card">
-
-<div class="workout-image">🏠</div>
-
-<h2>Home Workout</h2>
-
-<p>⏱ Duration: 15 Minutes</p>
-<p>⭐ Difficulty: Medium</p>
-<p>🔥 Calories: 150</p>
-
-<button class="action" onclick="selectWorkout('home')">
-Start Workout
-</button>
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-<div class="workout-image">🍑</div>
-
-<h2>Glutes & Legs</h2>
-
-<p>⏱ Duration: 15 Minutes</p>
-<p>⭐ Difficulty: Medium</p>
-<p>🔥 Calories: 180</p>
-
-<button class="action" onclick="selectWorkout('glutes')">
-Start Workout
-</button>
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-<div class="workout-image">💃</div>
-
-<h2>Dance Cardio</h2>
-
-<p>⏱ Duration: 12 Minutes</p>
-<p>⭐ Difficulty: Medium</p>
-<p>🔥 Calories: 200</p>
-
-<button class="action" onclick="selectWorkout('dance')">
-Start Workout
-</button>
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-<div class="workout-image">🧘</div>
-
-<h2>Yoga & Flexibility</h2>
-
-<p>⏱ Duration: 10 Minutes</p>
-<p>⭐ Difficulty: Easy</p>
-<p>🔥 Calories: 100</p>
-
-<button class="action" onclick="selectWorkout('yoga')">
-Start Workout
-</button>
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-<div class="workout-image">💪</div>
-
-<h2>Women Strength</h2>
-
-<p>⏱ Duration: 15 Minutes</p>
-<p>⭐ Difficulty: Medium</p>
-<p>🔥 Calories: 170</p>
-
-<button class="action" onclick="selectWorkout('women')">
-Start Workout
-</button>
-
-</div>
-
-
-
-
-</div>
-
-</div>
-<!-- EXERCISE SYSTEM -->
-
-
-<div class="card" id="exerciseBox" style="display:none;">
-
-
-<button class="action" onclick="backWorkout()">
-⬅ Back
-</button>
-
-
-<h2 id="exerciseTitle"></h2>
-
-
-<h2 id="exerciseName"></h2>
-
-
-<p id="exerciseInfo"></p>
-
-
-
-<div id="timer">
-30
-</div>
-
-
-
-
-<button class="action" onclick="startTimer()">
-▶ Start
-</button>
-
-
-
-<button class="action" onclick="pauseTimer()">
-⏸ Pause
-</button>
-
-
-
-
-<button class="action" id="nextBtn" onclick="nextExercise()" style="display:none;">
-➡ Next
-</button>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div id="progress" class="page">
-
-<h1>📈 Progress</h1>
-
-<div class="card">
-
-<p>Completed Workouts: 24</p>
-
-<p>Level: Beginner</p>
-
-</div>
-
-</div>
-
-
-
-
-
-
-<div id="nutrition" class="page">
-
-<h1>🥗 Nutrition</h1>
-
-<div class="card">
-
-<p>Nutrition Calculator Coming Soon</p>
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div id="ai" class="page">
-
-<h1>🤖 AI Coach</h1>
-
-<div class="card">
-
-<p>AI Workout Planner Coming Soon</p>
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div id="profile" class="page">
-
-<h1>👤 Profile</h1>
-
-<div class="card">
-
-<p>User Profile</p>
-
-</div>
-
-</div>
-
-
-
-
-
-
-</div>
-
-
-
-
-
-<script>
-
-
-
-function showPage(page){
-
-
-document.querySelectorAll(".page").forEach(function(p){
-
-p.style.display="none";
-
-});
-
-
-document.getElementById(page).style.display="block";
-
-
-}
-
-
-
-
-
-
-
-let workouts={
-
-
-
-muscle:[
-
-["Push Ups","3 sets × 12 reps",30],
-
-["Squats","3 sets × 15 reps",45],
-
-["Plank","30 seconds",30]
-
-],
-
-
-
-
-fatloss:[
-
-["Jumping Jacks","45 seconds",25],
-
-["Burpees","30 seconds",35],
-
-["Mountain Climbers","45 seconds",25]
-
-],
-
-
-
-
-beginner:[
-
-["Push Ups","10 reps",30],
-
-["Squats","10 reps",30],
-
-["Plank","20 seconds",25]
-
-],
-
-
-
-
-home:[
-
-["Lunges","12 reps",30],
-
-["Push Ups","10 reps",30],
-
-["Squats","15 reps",45]
-
-],
-
-
-
-
-glutes:[
-
-["Glute Bridges","15 reps",30],
-
-["Squats","15 reps",45],
-
-["Lunges","12 reps",30]
-
-],
-
-
-
-
-dance:[
-
-["Dance Warm Up","1 minute",30],
-
-["High Knees","30 seconds",25],
-
-["Jumping Jacks","45 seconds",30]
-
-],
-
-
-
-
-yoga:[
-
-["Stretching","1 minute",30],
-
-["Yoga Flow","2 minutes",45],
-
-["Relax Breathing","1 minute",30]
-
-],
-
-
-
-
-women:[
-
-["Bodyweight Squats","15 reps",30],
-
-["Core Workout","30 seconds",30],
-
-["Plank","30 seconds",30]
-
-]
-
-
-
-};
-
-
-
-
-
-
-let currentWorkout=[];
-
-let exerciseIndex=0;
-
-let time=0;
-
-let timer;
-
-
-
-
-
-
-
-
-function selectWorkout(type){
-
-
-currentWorkout=workouts[type];
-
-exerciseIndex=0;
-
-
-document.getElementById("exerciseBox").style.display="block";
-
-
-showExercise();
-
-
-}
-
-
-
-
-
-
-function showExercise(){
-
-
-let exercise=currentWorkout[exerciseIndex];
-
-
-
-document.getElementById("exerciseTitle").innerHTML="🏋️ Workout";
-
-
-document.getElementById("exerciseName").innerHTML=exercise[0];
-
-
-document.getElementById("exerciseInfo").innerHTML=exercise[1];
-
-
-
-time=exercise[2];
-
-
-document.getElementById("timer").innerHTML=time;
-
-
-document.getElementById("nextBtn").style.display="none";
-
-
-
-}
-
-
-
-
-
-
-
-
-function startTimer(){
-
-
-clearInterval(timer);
-
-
-
-timer=setInterval(function(){
-
-
-
-time--;
-
-
-
-document.getElementById("timer").innerHTML=time;
-
-
-
-
-
-if(time<=0){
-
-
-clearInterval(timer);
-
-
-alert("Exercise Complete 🔥");
-
-
-document.getElementById("nextBtn").style.display="block";
-
-
-}
-
-
-
-},1000);
-
-
-
-}
-
-
-
-
-
-
-
-function pauseTimer(){
-
-
-clearInterval(timer);
-
-
-}
-
-
-
-
-
-
-
-
-function nextExercise(){
-
-
-
-exerciseIndex++;
-
-
-
-if(exerciseIndex>=currentWorkout.length){
-
-
-alert("Workout Completed 🏆");
-
-
-return;
-
-
-}
-
-
-
-showExercise();
-
-
-
-}
-
-
-
-
-
-
-
-
-function backWorkout(){
-
-
-document.getElementById("exerciseBox").style.display="none";
-
-
-}
-
-
-
-
-
-
-
-
-function logout(){
-
-
-window.location.href="login.html";
-
-
-}
-
-
-
-</script>
-
-
-</body>
-
-</html>
