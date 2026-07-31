@@ -28,7 +28,7 @@ color:white;
 }
 
 
-/* SIDEBAR */
+
 
 .sidebar{
 
@@ -37,6 +37,7 @@ background:#111827;
 padding:20px;
 
 }
+
 
 
 
@@ -53,30 +54,29 @@ margin-bottom:30px;
 
 
 
-
 .sidebar button{
 
 width:100%;
+
 padding:15px;
 
 margin:6px 0;
 
-border:none;
-
 background:none;
 
-color:white;
+border:none;
 
-cursor:pointer;
+color:white;
 
 font-size:16px;
 
 text-align:left;
 
+cursor:pointer;
+
 border-radius:10px;
 
 }
-
 
 
 
@@ -115,7 +115,6 @@ display:none;
 display:block;
 
 }
-
 
 
 
@@ -163,7 +162,6 @@ border-radius:15px;
 text-align:center;
 
 }
-
 
 
 
@@ -266,6 +264,7 @@ margin:20px;
 }
 
 
+
 </style>
 
 </head>
@@ -277,8 +276,8 @@ margin:20px;
 
 
 
-<div class="sidebar">
 
+<div class="sidebar">
 
 
 <div class="logo">
@@ -286,6 +285,7 @@ margin:20px;
 💪 FitZone
 
 </div>
+
 
 
 
@@ -301,9 +301,11 @@ margin:20px;
 
 
 
+
 <button onclick="showPage('leaderboard')">
 🏆 Weekly Leaderboard
 </button>
+
 
 
 
@@ -313,9 +315,11 @@ margin:20px;
 
 
 
+
 <button onclick="showPage('nutrition')">
 🥗 Nutrition
 </button>
+
 
 
 
@@ -325,9 +329,11 @@ margin:20px;
 
 
 
+
 <button onclick="showPage('profile')">
 👤 Profile
 </button>
+
 
 
 
@@ -337,7 +343,9 @@ margin:20px;
 
 
 
+
 </div>
+
 
 
 
@@ -350,7 +358,6 @@ margin:20px;
 
 
 
-<!-- DASHBOARD -->
 
 <div id="dashboard" class="page">
 
@@ -361,7 +368,10 @@ margin:20px;
 
 
 
+
 <div class="stats">
+
+
 
 
 
@@ -379,6 +389,8 @@ margin:20px;
 
 
 
+
+
 <div class="stat">
 
 <h2>🏆</h2>
@@ -386,10 +398,14 @@ margin:20px;
 <p>Awards</p>
 
 <h3 id="awards">
+
 0 Badges
+
 </h3>
 
 </div>
+
+
 
 
 
@@ -402,10 +418,14 @@ margin:20px;
 <p>XP</p>
 
 <h3 id="xp">
+
 0 XP
+
 </h3>
 
 </div>
+
+
 
 
 
@@ -418,7 +438,9 @@ margin:20px;
 <p>Level</p>
 
 <h3 id="level">
+
 Level 1
+
 </h3>
 
 </div>
@@ -426,7 +448,11 @@ Level 1
 
 
 
+
+
+
 </div>
+
 
 
 
@@ -446,6 +472,8 @@ Level 1
 
 
 
+
+
 <div class="card">
 
 <h2>⚖️ Weight</h2>
@@ -457,1027 +485,6 @@ Level 1
 
 
 
-</div>
-
-<!-- WORKOUTS PAGE -->
-
-
-<div id="workouts" class="page">
-
-
-<h1>💪 Workout Center</h1>
-
-
-
-
-
-<div class="card">
-
-
-<h1><b>👩 WOMEN WORKOUTS</b></h1>
-
-
-
-<div class="workout-grid">
-
-
-
-
-
-<div class="workout-card">
-
-
-<div class="workout-image">
-🍑
-</div>
-
-
-<h2>Glutes & Legs</h2>
-
-<p>⏱ 15 Minutes</p>
-
-<p>⭐ Medium</p>
-
-
-<button class="action" onclick="selectWorkout('glutes')">
-Start Workout
-</button>
 
 
 </div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-
-<div class="workout-image">
-💃
-</div>
-
-
-<h2>Dance Cardio</h2>
-
-<p>⏱ 12 Minutes</p>
-
-<p>⭐ Medium</p>
-
-
-<button class="action" onclick="selectWorkout('dance')">
-Start Workout
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-
-<div class="workout-image">
-🧘
-</div>
-
-
-<h2>Yoga</h2>
-
-<p>⏱ 10 Minutes</p>
-
-<p>⭐ Easy</p>
-
-
-<button class="action" onclick="selectWorkout('yoga')">
-Start Workout
-</button>
-
-
-</div>
-
-
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h1><b>👨 MEN WORKOUTS</b></h1>
-
-
-
-
-<div class="workout-grid">
-
-
-
-
-
-
-<div class="workout-card">
-
-
-<div class="workout-image">
-💪
-</div>
-
-
-<h2>Muscle Building</h2>
-
-
-<p>⏱ 15 Minutes</p>
-
-<p>⭐ Medium</p>
-
-
-
-<button class="action" onclick="selectWorkout('muscle')">
-Start Workout
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-
-<div class="workout-image">
-🔥
-</div>
-
-
-<h2>Fat Loss</h2>
-
-
-<p>⏱ 12 Minutes</p>
-
-<p>⭐ Hard</p>
-
-
-
-<button class="action" onclick="selectWorkout('fatloss')">
-Start Workout
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="workout-card">
-
-
-<div class="workout-image">
-🏠
-</div>
-
-
-<h2>Home Workout</h2>
-
-
-<p>⏱ 15 Minutes</p>
-
-<p>⭐ Medium</p>
-
-
-
-<button class="action" onclick="selectWorkout('home')">
-Start Workout
-</button>
-
-
-</div>
-
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="card">
-
-
-<h1><b>🔥 EVERYONE WORKOUT</b></h1>
-
-
-
-<div class="workout-grid">
-
-
-
-
-
-<div class="workout-card">
-
-
-<div class="workout-image">
-🔥
-</div>
-
-
-<h2>Full Body Burn</h2>
-
-
-<p>⏱ 15 Minutes</p>
-
-<p>⭐ Medium</p>
-
-
-
-<button class="action" onclick="selectWorkout('fullbody')">
-Start Workout
-</button>
-
-
-</div>
-
-
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- WEEKLY LEADERBOARD PAGE -->
-
-
-
-<div id="leaderboard" class="page">
-
-
-
-<h1>🏆 Weekly Leaderboard</h1>
-
-
-
-<div class="card">
-
-
-<h2>🔥 This Week's Top Players</h2>
-
-
-<div id="leaderList">
-
-</div>
-
-
-
-<h3>
-⏳ Reset Every Monday
-</h3>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- OTHER PAGES -->
-
-
-
-<div id="progress" class="page">
-
-
-<h1>📈 Progress</h1>
-
-
-<div class="card">
-
-<p>Your progress will appear here.</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div id="nutrition" class="page">
-
-
-<h1>🥗 Nutrition</h1>
-
-
-<div class="card">
-
-<p>Nutrition planner coming soon.</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div id="ai" class="page">
-
-
-<h1>🤖 AI Coach</h1>
-
-
-<div class="card">
-
-<p>AI Coach coming soon.</p>
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div id="profile" class="page">
-
-
-<h1>👤 Profile</h1>
-
-
-<div class="card">
-
-<p>Your profile information.</p>
-
-</div>
-
-
-</div>
-
-<!-- EXERCISE TIMER -->
-
-
-<div class="card" id="exerciseBox" style="display:none;">
-
-
-<button class="action" onclick="backWorkout()">
-⬅ Back
-</button>
-
-
-
-<h2 id="exerciseName"></h2>
-
-
-<p id="exerciseInfo"></p>
-
-
-
-<div id="timer">
-30
-</div>
-
-
-
-
-<button class="action" onclick="startTimer()">
-▶ Start
-</button>
-
-
-
-<button class="action" onclick="pauseTimer()">
-⏸ Pause
-</button>
-
-
-
-<button class="action" id="nextBtn" onclick="nextExercise()" style="display:none;">
-➡ Next
-</button>
-
-
-
-</div>
-
-
-
-
-
-
-
-<script>
-
-
-function showPage(page){
-
-
-document.querySelectorAll(".page").forEach(function(p){
-
-p.style.display="none";
-
-});
-
-
-document.getElementById(page).style.display="block";
-
-
-}
-
-
-
-
-
-
-// XP SYSTEM
-
-
-let xp = Number(localStorage.getItem("fitXP")) || 0;
-
-
-let awards = JSON.parse(localStorage.getItem("fitAwards")) || [];
-
-
-
-
-
-function updateStats(){
-
-
-
-let level=1;
-
-
-if(xp>=500){
-
-level=2;
-
-}
-
-
-if(xp>=1000){
-
-level=3;
-
-}
-
-
-if(xp>=2000){
-
-level=4;
-
-}
-
-
-
-
-document.getElementById("xp").innerHTML =
-xp+" XP";
-
-
-
-document.getElementById("level").innerHTML =
-"Level "+level;
-
-
-
-document.getElementById("awards").innerHTML =
-awards.length+" Badges";
-
-
-
-}
-
-
-
-updateStats();
-
-
-
-
-
-
-
-// WORKOUT DATA
-
-
-let workouts={
-
-
-
-glutes:[
-
-["Glute Bridges","15 reps",30],
-
-["Squats","15 reps",45],
-
-["Lunges","12 reps",30]
-
-],
-
-
-
-dance:[
-
-["Dance Warm Up","1 minute",30],
-
-["High Knees","30 seconds",25],
-
-["Jumping Jacks","45 seconds",30]
-
-],
-
-
-
-yoga:[
-
-["Stretching","1 minute",30],
-
-["Yoga Flow","2 minutes",45],
-
-["Breathing","1 minute",30]
-
-],
-
-
-
-muscle:[
-
-["Push Ups","12 reps",30],
-
-["Squats","15 reps",45],
-
-["Plank","30 seconds",30]
-
-],
-
-
-
-
-fatloss:[
-
-["Burpees","30 seconds",35],
-
-["Mountain Climbers","45 seconds",25],
-
-["Jumping Jacks","45 seconds",30]
-
-],
-
-
-
-
-home:[
-
-["Lunges","12 reps",30],
-
-["Push Ups","10 reps",30],
-
-["Squats","15 reps",45]
-
-],
-
-
-
-
-fullbody:[
-
-["Jumping Jacks","30 seconds",30],
-
-["Squats","15 reps",45],
-
-["Push Ups","10 reps",30],
-
-["Plank","45 seconds",45]
-
-]
-
-
-};
-
-
-
-
-
-
-
-
-let currentWorkout=[];
-
-let exerciseIndex=0;
-
-let time=0;
-
-let timer;
-
-
-
-
-
-
-
-
-function selectWorkout(type){
-
-
-currentWorkout=workouts[type];
-
-
-exerciseIndex=0;
-
-
-
-document.getElementById("exerciseBox").style.display="block";
-
-
-showExercise();
-
-
-}
-
-
-
-
-
-
-
-
-function showExercise(){
-
-
-
-let ex=currentWorkout[exerciseIndex];
-
-
-
-document.getElementById("exerciseName").innerHTML=ex[0];
-
-
-document.getElementById("exerciseInfo").innerHTML=ex[1];
-
-
-
-time=ex[2];
-
-
-document.getElementById("timer").innerHTML=time;
-
-
-document.getElementById("nextBtn").style.display="none";
-
-
-
-}
-
-
-
-
-
-
-
-function startTimer(){
-
-
-clearInterval(timer);
-
-
-
-timer=setInterval(function(){
-
-
-time--;
-
-
-document.getElementById("timer").innerHTML=time;
-
-
-
-if(time<=0){
-
-
-clearInterval(timer);
-
-
-document.getElementById("nextBtn").style.display="block";
-
-
-alert("Exercise Complete 🔥");
-
-
-}
-
-
-
-},1000);
-
-
-
-}
-
-
-
-
-
-
-function pauseTimer(){
-
-
-clearInterval(timer);
-
-
-}
-
-
-
-
-
-
-
-
-function nextExercise(){
-
-
-exerciseIndex++;
-
-
-
-if(exerciseIndex>=currentWorkout.length){
-
-
-earnXP();
-
-
-alert("Workout Complete 🏆");
-
-
-return;
-
-
-}
-
-
-
-showExercise();
-
-
-
-}
-
-
-
-
-
-
-
-
-function earnXP(){
-
-
-xp+=100;
-
-
-localStorage.setItem("fitXP",xp);
-
-
-
-if(!awards.includes("⭐ XP Hunter")){
-
-
-awards.push("⭐ XP Hunter");
-
-
-}
-
-
-localStorage.setItem(
-"fitAwards",
-JSON.stringify(awards)
-);
-
-
-
-updateStats();
-
-
-}
-
-
-
-
-
-
-
-
-
-function backWorkout(){
-
-
-document.getElementById("exerciseBox").style.display="none";
-
-
-}
-
-
-
-
-
-
-
-
-
-
-// 540 PLAYER WEEKLY LEADERBOARD
-
-
-
-let players=[];
-
-
-
-for(let i=1;i<=540;i++){
-
-
-players.push({
-
-name:"Player "+i,
-
-xp:Math.floor(Math.random()*5000)
-
-});
-
-
-}
-
-
-
-
-
-
-function loadLeaderboard(){
-
-
-
-players.sort(function(a,b){
-
-return b.xp-a.xp;
-
-});
-
-
-
-let topPlayers=players.slice(0,100);
-
-
-
-let output="";
-
-
-
-
-topPlayers.forEach(function(player,index){
-
-
-
-let badge="🥉 Bronze Fighter";
-
-
-
-if(index<3){
-
-badge="🥇 Gold Champion";
-
-}
-
-else if(index<7){
-
-badge="🥈 Silver Athlete";
-
-}
-
-
-
-
-
-output+=
-
-"<div class='card'>"+
-
-(index+1)+". "+
-
-player.name+
-
-" - "+
-
-player.xp+
-
-" XP<br>"+
-
-badge+
-
-"</div>";
-
-
-
-});
-
-
-
-
-document.getElementById("leaderList").innerHTML=output;
-
-
-
-}
-
-
-
-loadLeaderboard();
-
-
-
-
-
-
-
-function logout(){
-
-
-window.location.href="login.html";
-
-
-}
-
-
-
-</script>
-
-
-</body>
-
-</html>
