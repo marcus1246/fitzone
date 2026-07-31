@@ -299,3 +299,396 @@ Start Workout
 
 
 </div>
+<!-- WORKOUT PAGE -->
+
+<div id="workouts" class="page">
+
+<h1>💪 Workout Center</h1>
+
+
+<div class="card" id="chooseBox">
+
+
+<h2>Select Workout</h2>
+
+
+<select id="workoutSelect" onchange="loadWorkout()">
+
+
+<option value="">
+Choose Workout
+</option>
+
+
+<option value="chest">
+💪 Chest Day
+</option>
+
+
+<option value="legs">
+🦵 Leg Day
+</option>
+
+
+<option value="fatloss">
+🔥 Fat Loss
+</option>
+
+
+<option value="beginner">
+🟢 Beginner Full Body
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+<div class="card" id="exerciseBox" style="display:none;">
+
+
+<button class="action" onclick="backWorkout()">
+⬅ Back
+</button>
+
+
+<h2 id="workoutTitle"></h2>
+
+
+<div class="video-box">
+
+🎥 Exercise Video
+
+</div>
+
+
+<h2 id="exerciseName"></h2>
+
+
+<p id="exerciseInfo"></p>
+
+
+<div id="timer">
+30
+</div>
+
+
+<button class="action" id="startBtn" onclick="startTimer()">
+▶ Start
+</button>
+
+
+<button class="action" id="nextBtn" onclick="nextExercise()" style="display:none;">
+➡ Next
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div id="progress" class="page">
+
+<h1>📈 Progress</h1>
+
+<div class="card">
+
+<p>Workouts Completed: 24</p>
+
+<p>Current Level: Beginner</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div id="nutrition" class="page">
+
+<h1>🥗 Nutrition</h1>
+
+<div class="card">
+
+<p>Calories Today: 1850 / 2300</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div id="ai" class="page">
+
+<h1>🤖 AI Coach</h1>
+
+<div class="card">
+
+<p>AI Workout Planner Coming Soon...</p>
+
+</div>
+
+</div>
+
+
+
+
+
+<div id="profile" class="page">
+
+<h1>👤 Profile</h1>
+
+<div class="card">
+
+<p>Goal: Build Muscle</p>
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+function showPage(page){
+
+
+document.querySelectorAll(".page").forEach(function(item){
+
+item.style.display="none";
+
+});
+
+
+document.getElementById(page).style.display="block";
+
+
+}
+
+
+
+
+let workouts={
+
+
+chest:[
+
+["Push Ups","3 sets × 12 reps",30],
+
+["Bench Press","4 sets × 10 reps",45],
+
+["Chest Fly","3 sets × 12 reps",30]
+
+],
+
+
+
+legs:[
+
+["Squats","3 sets × 15 reps",45],
+
+["Lunges","3 sets × 12 reps",30],
+
+["Calf Raises","3 sets × 20 reps",30]
+
+],
+
+
+
+fatloss:[
+
+["Jumping Jacks","45 seconds",25],
+
+["Burpees","30 seconds",35],
+
+["Mountain Climbers","45 seconds",25]
+
+],
+
+
+
+beginner:[
+
+["Push Ups","10 reps",30],
+
+["Squats","15 reps",45],
+
+["Plank","30 seconds",25]
+
+]
+
+
+};
+
+
+
+let currentWorkout=[];
+
+let currentExercise=0;
+
+let time=0;
+
+let timer;
+
+
+
+function loadWorkout(){
+
+
+let choice=document.getElementById("workoutSelect").value;
+
+
+currentWorkout=workouts[choice];
+
+
+currentExercise=0;
+
+
+document.getElementById("exerciseBox").style.display="block";
+
+
+showExercise();
+
+
+}
+
+
+
+function showExercise(){
+
+
+let exercise=currentWorkout[currentExercise];
+
+
+document.getElementById("workoutTitle").innerHTML="🏋️ Workout";
+
+
+document.getElementById("exerciseName").innerHTML=exercise[0];
+
+
+document.getElementById("exerciseInfo").innerHTML=exercise[1];
+
+
+time=exercise[2];
+
+
+document.getElementById("timer").innerHTML=time;
+
+
+document.getElementById("startBtn").style.display="block";
+
+
+document.getElementById("nextBtn").style.display="none";
+
+
+}
+
+
+
+function startTimer(){
+
+
+document.getElementById("startBtn").style.display="none";
+
+
+timer=setInterval(function(){
+
+
+time--;
+
+
+document.getElementById("timer").innerHTML=time;
+
+
+
+if(time<=0){
+
+
+clearInterval(timer);
+
+
+alert("Rest finished! 🔥");
+
+
+document.getElementById("nextBtn").style.display="block";
+
+
+}
+
+
+},1000);
+
+
+}
+
+
+
+
+function nextExercise(){
+
+
+currentExercise++;
+
+
+if(currentExercise>=currentWorkout.length){
+
+
+alert("Workout Complete! 🏆");
+
+
+return;
+
+
+}
+
+
+showExercise();
+
+
+}
+
+
+
+
+function backWorkout(){
+
+
+document.getElementById("exerciseBox").style.display="none";
+
+
+}
+
+
+
+
+function logout(){
+
+window.location.href="login.html";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
