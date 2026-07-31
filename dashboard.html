@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>FitZone Dashboard</title>
 
 <style>
@@ -21,160 +22,457 @@ background:#0f172a;
 color:white;
 }
 
-/* Sidebar */
+
+/* SIDEBAR */
 
 .sidebar{
-width:240px;
+
+width:250px;
 background:#111827;
-padding:20px;
+padding:25px;
+
 display:flex;
 flex-direction:column;
+
 }
 
 .logo{
+
 font-size:28px;
 font-weight:bold;
 color:#22c55e;
 text-align:center;
 margin-bottom:40px;
+
 }
 
+
 .sidebar button{
+
 background:none;
 border:none;
 color:white;
+
 padding:15px;
+
 font-size:17px;
 text-align:left;
+
 cursor:pointer;
+
 border-radius:10px;
+
 margin-bottom:10px;
+
 transition:.3s;
+
 }
+
 
 .sidebar button:hover{
+
 background:#22c55e;
+
 }
 
-/* Main Content */
+
+
+/* MAIN */
 
 .main{
+
 flex:1;
 padding:40px;
 overflow:auto;
+
 }
+
 
 .page{
+
 display:none;
+
 }
+
 
 #dashboard{
+
 display:block;
+
 }
+
+
+
+/* CARDS */
+
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+gap:20px;
+
+margin-top:25px;
+
+}
+
+
+.stat-card{
+
+background:#1e293b;
+
+padding:25px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+
+.stat-card h2{
+
+font-size:40px;
+
+}
+
+
+.stat-card p{
+
+color:#22c55e;
+
+font-size:25px;
+
+margin-top:10px;
+
+}
+
+
 
 .card{
+
 background:#1e293b;
-padding:20px;
+
+padding:25px;
+
 border-radius:15px;
-margin-top:20px;
-box-shadow:0 0 15px rgba(0,0,0,.3);
+
+margin-top:25px;
+
 }
 
+
+
+.card h2{
+
+color:#22c55e;
+
+margin-bottom:15px;
+
+}
+
+
+/* Progress bar */
+
+
+.bar{
+
+height:15px;
+
+background:#334155;
+
+border-radius:10px;
+
+margin:15px 0;
+
+}
+
+
+.progress{
+
+height:100%;
+
+width:80%;
+
+background:#22c55e;
+
+border-radius:10px;
+
+}
+
+
+
 </style>
+
 </head>
+
 
 <body>
 
+
+
 <div class="sidebar">
 
+
 <div class="logo">
+
 💪 FitZone
-</div>
-
-<button onclick="showPage('dashboard')">🏠 Dashboard</button>
-
-<button onclick="showPage('workouts')">💪 Workouts</button>
-
-<button onclick="showPage('progress')">📈 Progress</button>
-
-<button onclick="showPage('nutrition')">🥗 Nutrition</button>
-
-<button onclick="showPage('ai')">🤖 AI Coach</button>
-
-<button onclick="showPage('profile')">👤 Profile</button>
-
-<button onclick="logout()">🚪 Logout</button>
 
 </div>
+
+
+<button onclick="showPage('dashboard')">
+
+🏠 Dashboard
+
+</button>
+
+
+<button onclick="showPage('workouts')">
+
+💪 Workouts
+
+</button>
+
+
+<button onclick="showPage('progress')">
+
+📈 Progress
+
+</button>
+
+
+<button onclick="showPage('nutrition')">
+
+🥗 Nutrition
+
+</button>
+
+
+<button onclick="showPage('ai')">
+
+🤖 AI Coach
+
+</button>
+
+
+<button onclick="showPage('profile')">
+
+👤 Profile
+
+</button>
+
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+
+</div>
+
+
+
 
 <div class="main">
 
+
 <div id="dashboard" class="page">
 
-<h1>Welcome Back! 👋</h1>
 
-<div class="card">
-<h2>🔥 Workout Streak</h2>
+<h1>Welcome Back Athlete! 👋</h1>
+
+
+
+<div class="stats">
+
+
+<div class="stat-card">
+
+<h2>🔥</h2>
+
+<h3>Workout Streak</h3>
+
 <p>7 Days</p>
+
 </div>
 
+
+
+<div class="stat-card">
+
+<h2>💪</h2>
+
+<h3>Workouts Done</h3>
+
+<p>24</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<h2>⚡</h2>
+
+<h3>Calories Burned</h3>
+
+<p>8450</p>
+
+</div>
+
+
+</div>
+
+
+
+
+
 <div class="card">
+
 <h2>🏋️ Today's Workout</h2>
+
 <p>Chest & Triceps</p>
+
+
+<div class="bar">
+
+<div class="progress"></div>
+
 </div>
+
+
+<p>80% Complete</p>
+
+
+</div>
+
+
+
+
 
 <div class="card">
-<h2>🥗 Calories</h2>
-<p>1850 / 2300 kcal</p>
-</div>
+
+<h2>🏆 Achievements</h2>
+
+<p>🥇 First Workout</p>
+
+<p>🔥 7 Day Streak</p>
+
+<p>💪 20 Workouts Completed</p>
+
 
 </div>
+
+
+</div>
+
+
+
+
 
 <div id="workouts" class="page">
+
 <h1>💪 Workouts</h1>
+
+<p>Workout plans coming soon...</p>
+
 </div>
+
+
+
 
 <div id="progress" class="page">
+
 <h1>📈 Progress</h1>
+
+<p>Your progress tracker coming soon...</p>
+
 </div>
+
+
+
 
 <div id="nutrition" class="page">
+
 <h1>🥗 Nutrition</h1>
+
+<p>Nutrition calculator coming soon...</p>
+
 </div>
+
+
+
 
 <div id="ai" class="page">
+
 <h1>🤖 AI Coach</h1>
+
+<p>AI workout planner coming soon...</p>
+
 </div>
+
+
+
 
 <div id="profile" class="page">
+
 <h1>👤 Profile</h1>
-</div>
+
+<p>Your profile coming soon...</p>
 
 </div>
+
+
+
+</div>
+
+
+
+
 
 <script>
 
+
 function showPage(page){
+
 
 let pages=document.querySelectorAll(".page");
 
+
 pages.forEach(function(p){
+
 p.style.display="none";
+
 });
+
 
 document.getElementById(page).style.display="block";
 
+
 }
+
+
 
 function logout(){
 
+
 localStorage.removeItem("loggedIn");
+
 
 window.location.href="login.html";
 
+
 }
+
 
 </script>
 
+
+
 </body>
+
 </html>
