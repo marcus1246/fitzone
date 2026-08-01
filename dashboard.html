@@ -777,3 +777,109 @@ onclick="logout()">
 </div>
 
 <script>
+// ======================================
+// FITZONE DASHBOARD
+// PART 4A
+// ======================================
+
+// ---------- LOGIN PROTECTION ----------
+
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+if(!currentUser){
+
+alert("Please login first!");
+
+window.location.href="login.html";
+
+}
+
+// ---------- LOAD USER ----------
+
+document.getElementById("username").textContent =
+currentUser.username;
+
+document.getElementById("xp").textContent =
+currentUser.xp || 0;
+
+document.getElementById("level").textContent =
+currentUser.level || 1;
+
+document.getElementById("streak").textContent =
+(currentUser.streak || 0) + " Days";
+
+document.getElementById("badges").textContent =
+(currentUser.badges || []).length;
+
+document.getElementById("profileUsername").textContent =
+currentUser.username;
+
+document.getElementById("profileEmail").textContent =
+currentUser.email;
+
+document.getElementById("profileXP").textContent =
+currentUser.xp || 0;
+
+document.getElementById("profileLevel").textContent =
+currentUser.level || 1;
+
+document.getElementById("profileWorkouts").textContent =
+currentUser.workouts || 0;
+
+document.getElementById("weeklyWorkouts").textContent =
+(currentUser.weeklyWorkouts || 0) + " / 7";
+
+// ---------- PAGE NAVIGATION ----------
+
+function showPage(page){
+
+let pages =
+document.querySelectorAll(".page");
+
+pages.forEach(function(p){
+
+p.style.display="none";
+
+});
+
+document.getElementById(page).style.display="block";
+
+}
+
+// ---------- SAVE USER ----------
+
+function saveUser(){
+
+let users =
+JSON.parse(localStorage.getItem("users")) || [];
+
+let index =
+users.findIndex(u => u.email === currentUser.email);
+
+if(index !== -1){
+
+users[index]=currentUser;
+
+localStorage.setItem(
+"users",
+JSON.stringify(users)
+);
+
+}
+
+localStorage.setItem(
+"currentUser",
+JSON.stringify(currentUser)
+);
+
+}
+
+// ---------- LOGOUT ----------
+
+function logout(){
+
+localStorage.removeItem("currentUser");
+
+window.location.href="login.html";
+
+}
