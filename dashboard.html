@@ -1649,3 +1649,123 @@ saveUser();
 loadUser();
 
 }
+<!-- ================= FITZONE V15 PART 2C ================= -->
+
+<section class="workout-section">
+
+    <h2>🔥 Today's Workout</h2>
+
+    <div class="workout-card">
+        <h3>Full Body Blast</h3>
+        <p>30 Minutes • Beginner</p>
+
+        <ul>
+            <li>💪 Push Ups - 3 Sets</li>
+            <li>🏋️ Squats - 3 Sets</li>
+            <li>🔥 Plank - 60 Seconds</li>
+            <li>🏃 Jumping Jacks - 50 Reps</li>
+        </ul>
+
+        <button onclick="startWorkout()">Start Workout</button>
+
+    </div>
+
+
+    <div class="timer-box">
+
+        <h3>Workout Timer</h3>
+
+        <h1 id="timer">
+            00:00
+        </h1>
+
+        <button onclick="finishWorkout()">
+            Complete Workout ✅
+        </button>
+
+    </div>
+
+
+    <div class="progress-box">
+
+        <h3>Your Progress</h3>
+
+        <p>
+            ⭐ XP:
+            <span id="xp">0</span>
+        </p>
+
+        <p>
+            🔥 Streak:
+            <span id="streak">0</span> Days
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<script>
+
+let seconds = 0;
+let timer;
+let xp = 0;
+let streak = 0;
+
+
+
+function startWorkout(){
+
+    clearInterval(timer);
+
+    timer = setInterval(()=>{
+
+        seconds++;
+
+        let mins = Math.floor(seconds / 60);
+        let secs = seconds % 60;
+
+
+        document.getElementById("timer").innerHTML =
+        String(mins).padStart(2,"0")
+        + ":" +
+        String(secs).padStart(2,"0");
+
+
+    },1000);
+
+
+}
+
+
+
+function finishWorkout(){
+
+    clearInterval(timer);
+
+
+    xp += 100;
+    streak += 1;
+
+
+    document.getElementById("xp").innerHTML = xp;
+
+    document.getElementById("streak").innerHTML = streak;
+
+
+
+    alert(
+        "🔥 Workout Complete!\n+100 XP Earned!"
+    );
+
+
+    seconds = 0;
+
+
+}
+
+
+
+</script>
