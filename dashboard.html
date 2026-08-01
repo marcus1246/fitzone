@@ -1319,3 +1319,162 @@ onclick="saveProfile()">
 <script>
 
 <script>
+// ===============================
+// FITZONE V15
+// USER SYSTEM
+// ===============================
+
+let currentUser =
+JSON.parse(localStorage.getItem("currentUser"));
+
+if(!currentUser){
+
+window.location.href="login.html";
+
+}
+
+currentUser.username =
+currentUser.username || "User";
+
+currentUser.email =
+currentUser.email || "";
+
+currentUser.xp =
+currentUser.xp || 0;
+
+currentUser.level =
+currentUser.level || 1;
+
+currentUser.streak =
+currentUser.streak || 0;
+
+currentUser.workouts =
+currentUser.workouts || 0;
+
+currentUser.badges =
+currentUser.badges || [];
+
+currentUser.height =
+currentUser.height || "Not Set";
+
+currentUser.weight =
+currentUser.weight || "Not Set";
+
+currentUser.goal =
+currentUser.goal || "Stay Fit";
+
+currentUser.weeklyWorkouts =
+currentUser.weeklyWorkouts || 0;
+
+
+// ===============================
+// PAGE NAVIGATION
+// ===============================
+
+function showPage(page){
+
+document.querySelectorAll(".page")
+.forEach(function(p){
+
+p.style.display="none";
+
+});
+
+document.getElementById(page)
+.style.display="block";
+
+}
+
+
+// ===============================
+// LOAD USER
+// ===============================
+
+function loadUser(){
+
+document.getElementById("username")
+.innerHTML=currentUser.username;
+
+document.getElementById("xp")
+.innerHTML=currentUser.xp;
+
+document.getElementById("level")
+.innerHTML=currentUser.level;
+
+document.getElementById("streak")
+.innerHTML=currentUser.streak+" Days";
+
+document.getElementById("badgeCount")
+.innerHTML=currentUser.badges.length;
+
+document.getElementById("workoutsDone")
+.innerHTML=currentUser.workouts;
+
+document.getElementById("height")
+.innerHTML=currentUser.height;
+
+document.getElementById("weight")
+.innerHTML=currentUser.weight;
+
+document.getElementById("goal")
+.innerHTML=currentUser.goal;
+
+
+// PROFILE
+
+document.getElementById("profileName")
+.innerHTML=currentUser.username;
+
+document.getElementById("profileEmail")
+.innerHTML=currentUser.email;
+
+document.getElementById("profileXP")
+.innerHTML=currentUser.xp;
+
+document.getElementById("profileLevel")
+.innerHTML=currentUser.level;
+
+document.getElementById("profileStreak")
+.innerHTML=currentUser.streak+" Days";
+
+document.getElementById("profileWorkouts")
+.innerHTML=currentUser.workouts;
+
+document.getElementById("profileBadges")
+.innerHTML=currentUser.badges.length;
+
+
+// SETTINGS
+
+document.getElementById("heightInput")
+.value=currentUser.height;
+
+document.getElementById("weightInput")
+.value=currentUser.weight;
+
+document.getElementById("goalInput")
+.value=currentUser.goal;
+
+updateProgress();
+
+}
+
+loadUser();
+
+
+
+// ===============================
+// SAVE USER
+// ===============================
+
+function saveUser(){
+
+localStorage.setItem(
+
+"currentUser",
+
+JSON.stringify(currentUser)
+
+);
+
+}
