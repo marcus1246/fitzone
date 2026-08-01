@@ -1,13 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>FitZone - Sign Up</title>
-
 
 <style>
 
@@ -18,183 +15,108 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
-
 body{
-
 height:100vh;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 background:linear-gradient(135deg,#0f172a,#1e293b);
-
 }
-
-
 
 .container{
-
-width:380px;
-
+width:400px;
 background:#1f2937;
-
 padding:35px;
-
-border-radius:15px;
-
+border-radius:18px;
 box-shadow:0 0 20px rgba(34,197,94,.4);
-
 }
-
-
 
 h1{
-
 text-align:center;
-
 color:#22c55e;
-
 margin-bottom:25px;
-
 }
 
-
-
-
-input{
-
+input,select{
 width:100%;
-
 padding:14px;
-
-margin:8px 0;
-
+margin:10px 0;
 border:none;
-
 border-radius:8px;
-
 font-size:16px;
-
 }
-
-
-
-
 
 button{
-
 width:100%;
-
 padding:14px;
-
+margin-top:15px;
 background:#22c55e;
-
 color:white;
-
 border:none;
-
 border-radius:8px;
-
 font-size:16px;
-
 cursor:pointer;
-
-margin-top:10px;
-
+transition:.3s;
 }
-
-
 
 button:hover{
-
 background:#16a34a;
-
 }
-
-
-
 
 p{
-
-text-align:center;
-
-color:white;
-
 margin-top:20px;
-
+text-align:center;
+color:white;
 }
-
-
 
 a{
-
 color:#22c55e;
-
 text-decoration:none;
-
 font-weight:bold;
-
 }
 
-
 </style>
-
-
 </head>
-
-
 
 <body>
 
-
-
 <div class="container">
 
+<h1>Create Account</h1>
 
-
-<h1>Create Account 💪</h1>
-
-
-
-<input 
-type="text" 
-id="username" 
+<input
+type="text"
+id="username"
 placeholder="Username">
 
-
-
-<input 
-type="email" 
-id="email" 
+<input
+type="email"
+id="email"
 placeholder="Email">
 
-
-
-<input 
-type="password" 
-id="password" 
+<input
+type="password"
+id="password"
 placeholder="Password">
 
-
-
-<input 
-type="number" 
-id="height" 
+<input
+type="number"
+id="height"
 placeholder="Height (cm)">
 
-
-
-<input 
-type="number" 
-id="weight" 
+<input
+type="number"
+id="weight"
 placeholder="Weight (kg)">
 
+<select id="goal">
 
+<option>Build Muscle</option>
+<option>Lose Weight</option>
+<option>Stay Fit</option>
+<option>Gain Strength</option>
 
-
+</select>
 
 <button onclick="signup()">
 
@@ -202,116 +124,81 @@ Create Account
 
 </button>
 
-
-
-
-
 <p>
 
 Already have an account?
 
 <a href="login.html">
+
 Login
+
 </a>
 
 </p>
 
-
-
 </div>
-
-
-
-
-
-
 
 <script>
 
-
 function signup(){
 
+let users=
+JSON.parse(localStorage.getItem("users"))||[];
 
+let email=
+document.getElementById("email").value.trim();
 
-let user={
+if(users.some(u=>u.email===email)){
 
-
-username:document.getElementById("username").value,
-
-
-email:document.getElementById("email").value,
-
-
-password:document.getElementById("password").value,
-
-
-height:document.getElementById("height").value,
-
-
-weight:document.getElementById("weight").value,
-
-
-xp:0,
-
-
-level:1,
-
-
-awards:[]
-
-
-};
-
-
-
-
-
-if(
-user.username=="" ||
-user.email=="" ||
-user.password==""
-){
-
-alert("Please fill all details");
+alert("An account with this email already exists.");
 
 return;
 
 }
 
+let user={
 
+username:document.getElementById("username").value,
 
+email:email,
 
+password:document.getElementById("password").value,
 
+height:document.getElementById("height").value,
 
+weight:document.getElementById("weight").value,
+
+goal:document.getElementById("goal").value,
+
+xp:0,
+
+level:1,
+
+streak:0,
+
+workouts:0,
+
+badges:[],
+
+weeklyWorkouts:0
+
+};
+
+users.push(user);
 
 localStorage.setItem(
-
-"fitUser",
-
-JSON.stringify(user)
-
+"users",
+JSON.stringify(users)
 );
 
-
-
-
-
-alert("Account created successfully! 🎉");
-
-
+alert("Account created successfully!");
 
 window.location.href="login.html";
 
-
-
 }
-
-
 
 </script>
 
-
-
 </body>
-
 </html>
+```
