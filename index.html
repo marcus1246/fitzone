@@ -1,125 +1,78 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FitZone</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
-}
-
-.container{
-text-align:center;
-background:#1f2937;
-padding:50px;
-border-radius:20px;
-width:420px;
-box-shadow:0 0 25px rgba(34,197,94,.4);
-}
-
-h1{
-font-size:50px;
-color:#22c55e;
-margin-bottom:10px;
-}
-
-p{
-color:#cbd5e1;
-margin-bottom:30px;
-font-size:18px;
-line-height:1.6;
-}
-
-button{
-width:100%;
-padding:15px;
-margin:10px 0;
-border:none;
-border-radius:10px;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
-}
-
-.login{
-background:#22c55e;
-color:white;
-}
-
-.login:hover{
-background:#16a34a;
-}
-
-.signup{
-background:white;
-color:#111827;
-}
-
-.signup:hover{
-background:#e5e7eb;
-}
-
-footer{
-margin-top:30px;
-font-size:14px;
-color:#94a3b8;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitZone - Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+<header>
+    <h1>💪 FitZone</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+</header>
 
-<h1>💪 FITZONE</h1>
 
-<p>
-Train Hard.<br>
-Stay Strong.<br>
-Become Your Best.
-</p>
+<section class="hero">
 
-<button
-class="login"
-onclick="window.location.href='login.html'">
+    <div class="hero-content">
+        <h2>Build Your Best Version</h2>
 
-🔐 Login
+        <p>
+            Track workouts, earn XP, unlock badges,
+            and become stronger every day.
+        </p>
 
-</button>
+        <button onclick="startJourney()">
+            Start Training
+        </button>
 
-<button
-class="signup"
-onclick="window.location.href='signup.html'">
+    </div>
 
-📝 Create Account
+</section>
 
-</button>
+
+<section class="features">
+
+    <div class="card">
+        <h3>🔥 Workouts</h3>
+        <p>
+            Complete workouts and track your progress.
+        </p>
+    </div>
+
+
+    <div class="card">
+        <h3>🏆 Badges</h3>
+        <p>
+            Unlock achievements as you improve.
+        </p>
+    </div>
+
+
+    <div class="card">
+        <h3>📈 Progress</h3>
+        <p>
+            Watch your fitness journey grow.
+        </p>
+    </div>
+
+</section>
+
 
 <footer>
-
-🔥 Your fitness journey starts here.
-
+    <p>
+        © 2026 FitZone
+    </p>
 </footer>
 
-</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
-```
