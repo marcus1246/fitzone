@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -13,15 +12,10 @@ content="width=device-width, initial-scale=1.0">
 <style>
 
 *{
-
 margin:0;
-
 padding:0;
-
 box-sizing:border-box;
-
 font-family:Arial,sans-serif;
-
 }
 
 body{
@@ -32,11 +26,13 @@ color:white;
 
 display:flex;
 
-min-height:100vh;
+height:100vh;
 
 overflow:hidden;
 
 }
+
+/* ===== Sidebar ===== */
 
 .sidebar{
 
@@ -54,7 +50,7 @@ flex-direction:column;
 
 .logo{
 
-font-size:32px;
+font-size:34px;
 
 font-weight:bold;
 
@@ -74,15 +70,15 @@ border:none;
 
 color:white;
 
-padding:16px;
-
-margin:6px 0;
-
 font-size:17px;
 
-cursor:pointer;
+padding:15px;
 
-border-radius:12px;
+margin:5px 0;
+
+border-radius:10px;
+
+cursor:pointer;
 
 text-align:left;
 
@@ -95,6 +91,8 @@ transition:.3s;
 background:#22c55e;
 
 }
+
+/* ===== Main ===== */
 
 .main{
 
@@ -112,8 +110,6 @@ background:#0f172a;
 
 display:none;
 
-animation:fade .4s;
-
 }
 
 #dashboard{
@@ -122,25 +118,7 @@ display:block;
 
 }
 
-@keyframes fade{
-
-from{
-
-opacity:0;
-
-transform:translateY(10px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
+/* ===== Cards ===== */
 
 .cards{
 
@@ -158,11 +136,11 @@ margin-top:25px;
 
 background:#1e293b;
 
-padding:22px;
+padding:20px;
 
 border-radius:18px;
 
-box-shadow:0 0 12px rgba(0,0,0,.25);
+box-shadow:0 0 15px rgba(0,0,0,.25);
 
 }
 
@@ -174,98 +152,39 @@ margin-bottom:10px;
 
 }
 
-.stat{
+.card h1{
 
-font-size:32px;
+font-size:34px;
 
-font-weight:bold;
+margin-top:10px;
 
 }
 
 .action{
 
-background:#22c55e;
+margin-top:15px;
+
+padding:14px;
+
+width:100%;
 
 border:none;
 
+border-radius:10px;
+
+background:#22c55e;
+
 color:white;
-
-padding:14px 22px;
-
-border-radius:12px;
-
-cursor:pointer;
 
 font-size:16px;
 
-margin-top:15px;
+cursor:pointer;
 
 }
 
 .action:hover{
 
 background:#16a34a;
-
-}
-.stats-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-
-gap:20px;
-
-margin-top:30px;
-
-}
-
-.stat-card{
-
-background:#111827;
-
-padding:20px;
-
-border-radius:15px;
-
-text-align:center;
-
-border:1px solid rgba(34,197,94,.25);
-
-}
-
-.stat-card h3{
-
-font-size:16px;
-
-margin-bottom:10px;
-
-color:#cbd5e1;
-
-}
-
-.stat-card p{
-
-font-size:28px;
-
-font-weight:bold;
-
-color:#22c55e;
-
-}
-
-.section-title{
-
-font-size:28px;
-
-margin-bottom:10px;
-
-}
-
-.section-text{
-
-color:#94a3b8;
-
-margin-bottom:20px;
 
 }
 
@@ -284,45 +203,31 @@ margin-bottom:20px;
 </div>
 
 <button onclick="showPage('dashboard')">
-
 🏠 Dashboard
-
 </button>
 
 <button onclick="showPage('workouts')">
-
 💪 Workouts
-
 </button>
 
 <button onclick="showPage('leaderboard')">
-
 🏆 Leaderboard
-
 </button>
 
 <button onclick="showPage('awards')">
-
 🏅 Awards
-
 </button>
 
 <button onclick="showPage('profile')">
-
 👤 Profile
-
 </button>
 
 <button onclick="showPage('settings')">
-
 ⚙️ Settings
-
 </button>
 
 <button onclick="logout()">
-
 🚪 Logout
-
 </button>
 
 </div>
@@ -331,7 +236,7 @@ margin-bottom:20px;
 
 <div id="dashboard" class="page">
 
-<h1 class="section-title">
+<h1>
 
 Welcome,
 
@@ -345,1427 +250,56 @@ User
 
 </h1>
 
-<p class="section-text">
+<br>
 
-Ready to smash today's workout?
+<div class="cards">
 
-</p>
+<div class="card">
 
-<div class="stats-grid">
+<h2>⭐ XP</h2>
 
-<div class="stat-card">
-
-<h3>⭐ XP</h3>
-
-<p id="xp">
+<h1 id="xp">
 
 0
 
-</p>
+</h1>
 
 </div>
 
-<div class="stat-card">
+<div class="card">
 
-<h3>🏅 Level</h3>
+<h2>🏅 Level</h2>
 
-<p id="level">
+<h1 id="level">
 
 1
 
-</p>
+</h1>
 
 </div>
 
-<div class="stat-card">
+<div class="card">
 
-<h3>🔥 Streak</h3>
+<h2>🔥 Streak</h2>
 
-<p id="streak">
+<h1 id="streak">
 
 0 Days
 
-</p>
-
-</div>
-
-<div class="stat-card">
-
-<h3>🏆 Badges</h3>
-
-<p id="badgeCount">
-
-0
-
-</p>
-
-</div>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<h2>Today's Goal</h2>
-
-<p id="goalText">
-
-Complete one workout today.
-
-</p>
-
-<button class="action" onclick="showPage('workouts')">
-
-Start Workout
-
-</button>
+</h1>
 
 </div>
 
 <div class="card">
 
-<h2>Progress</h2>
+<h2>🏆 Badges</h2>
 
-<p>
-
-Completed Workouts
-
-</p>
-
-<h1 id="workoutsDone">
+<h1 id="badges">
 
 0
 
 </h1>
 
 </div>
-<div class="card">
 
-<h2>📏 Height</h2>
-
-<h1 id="height">
-
-Not Set
-
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>⚖️ Weight</h2>
-
-<h1 id="weight">
-
-Not Set
-
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>🎯 Fitness Goal</h2>
-
-<h1 id="goal">
-
-Stay Fit
-
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>🏅 Latest Badge</h2>
-
-<h1 id="latestBadge">
-
-None Yet
-
-</h1>
-
-</div>
-
-</div>
-
-<br><br>
-
-<div class="card">
-
-<h2>🔥 Weekly Progress</h2>
-
-<br>
-
-<div style="width:100%;height:20px;background:#374151;border-radius:20px;overflow:hidden;">
-
-<div id="progressBar"
-
-style="width:0%;height:100%;background:#22c55e;transition:.5s;">
-
-</div>
-
-</div>
-
-<br>
-
-<p id="progressText">
-
-0 / 7 workouts completed this week
-
-</p>
-
-</div>
-
-<br>
-
-<div class="card">
-
-<h2>⚡ Quick Actions</h2>
-
-<br>
-
-<button class="action"
-
-onclick="showPage('workouts')">
-
-💪 Start Workout
-
-</button>
-
-<button class="action"
-
-onclick="showPage('leaderboard')">
-
-🏆 View Leaderboard
-
-</button>
-
-<button class="action"
-
-onclick="showPage('profile')">
-
-👤 My Profile
-
-</button>
-
-</div>
-
-</div>
-
-<!-- WORKOUT PAGE STARTS HERE -->
-
-<div id="workouts" class="page">
-
-<h1 class="section-title">
-
-💪 Workout Center
-
-</h1>
-
-<p class="section-text">
-
-Choose your workout category below.
-
-</p>
-<!-- ===========================
-WOMEN WORKOUTS
-=========================== -->
-
-<h2 style="margin-top:30px;color:#22c55e;">
-<b>👩 WOMEN WORKOUTS</b>
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h2>🍑 Glutes Builder</h2>
-
-<p>15 Minutes</p>
-
-<p>⭐⭐ Easy</p>
-
-<p>+100 XP</p>
-
-<button class="action"
-onclick="selectWorkout('glutes')">
-
-Start Workout
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🔥 Fat Burner</h2>
-
-<p>20 Minutes</p>
-
-<p>⭐⭐⭐ Medium</p>
-
-<p>+150 XP</p>
-
-<button class="action"
-onclick="selectWorkout('womenfat')">
-
-Start Workout
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🧘 Yoga Flow</h2>
-
-<p>10 Minutes</p>
-
-<p>⭐ Beginner</p>
-
-<p>+75 XP</p>
-
-<button class="action"
-onclick="selectWorkout('yoga')">
-
-Start Workout
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🏃 Cardio Blast</h2>
-
-<p>18 Minutes</p>
-
-<p>⭐⭐⭐ Medium</p>
-
-<p>+140 XP</p>
-
-<button class="action"
-onclick="selectWorkout('cardio')">
-
-Start Workout
-
-</button>
-
-</div>
-
-</div>
-
-<!-- ===========================
-MEN WORKOUTS
-=========================== -->
-
-<h2 style="margin-top:40px;color:#22c55e;">
-<b>👨 MEN WORKOUTS</b>
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h2>💪 Muscle Builder</h2>
-
-<p>20 Minutes</p>
-
-<p>⭐⭐⭐ Medium</p>
-
-<p>+150 XP</p>
-
-<button class="action"
-onclick="selectWorkout('muscle')">
-
-Start Workout
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🏋 Chest & Arms</h2>
-
-<p>18 Minutes</p>
-
-<p>⭐⭐⭐⭐ Hard</p>
-
-<p>+180 XP</p>
-
-<button class="action"
-onclick="selectWorkout('chest')">
-
-Start Workout
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🦵 Leg Day</h2>
-
-<p>20 Minutes</p>
-
-<p>⭐⭐⭐ Medium</p>
-
-<p>+160 XP</p>
-
-<button class="action"
-onclick="selectWorkout('legs')">
-
-Start Workout
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🔥 Fat Loss HIIT</h2>
-
-<p>15 Minutes</p>
-
-<p>⭐⭐⭐⭐ Hard</p>
-
-<p>+200 XP</p>
-
-<button class="action"
-onclick="selectWorkout('hiit')">
-
-Start Workout
-
-</button>
-
-</div>
-
-</div>
-
-<!-- ===========================
-EVERYONE WORKOUTS
-=========================== -->
-
-<h2 style="margin-top:40px;color:#22c55e;">
-<b>🌍 EVERYONE</b>
-</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h2>🏠 Home Workout</h2>
-
-<p>15 Minutes</p>
-
-<p>⭐⭐ Easy</p>
-
-<p>+100 XP</p>
-
-<button class="action"
-onclick="selectWorkout('home')">
-
-Start Workout
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>⚡ Full Body</h2>
-
-<p>25 Minutes</p>
-
-<p>⭐⭐⭐⭐ Hard</p>
-
-<p>+220 XP</p>
-
-<button class="action"
-onclick="selectWorkout('fullbody')">
-
-Start Workout
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🧘 Stretch & Recover</h2>
-
-<p>10 Minutes</p>
-
-<p>⭐ Beginner</p>
-
-<p>+60 XP</p>
-
-<button class="action"
-onclick="selectWorkout('stretch')">
-
-Start Workout
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🏃 Beginner Fitness</h2>
-
-<p>12 Minutes</p>
-
-<p>⭐ Beginner</p>
-
-<p>+80 XP</p>
-
-<button class="action"
-onclick="selectWorkout('beginner')">
-
-Start Workout
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-<!-- ===========================
-LEADERBOARD PAGE
-=========================== -->
-
-<div id="leaderboard" class="page">
-
-<h1 class="section-title">
-🏆 Weekly Leaderboard
-</h1>
-
-<p class="section-text">
-Top players reset every week.
-Fight for the #1 spot!
-</p>
-
-<div class="card">
-
-<h2>🥇 Top Players</h2>
-
-<div id="leaderboardList">
-
-<div class="stat-card">
-<h3>Loading...</h3>
-<p>0 XP</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ===========================
-AWARDS PAGE
-=========================== -->
-
-<div id="awards" class="page">
-
-<h1 class="section-title">
-🏅 Achievements
-</h1>
-
-<p class="section-text">
-Unlock badges by staying active.
-</p>
-
-<div class="cards">
-
-<div class="card">
-<h2>🥉 First Workout</h2>
-<p>Complete your first workout.</p>
-</div>
-
-<div class="card">
-<h2>🔥 7 Day Warrior</h2>
-<p>Maintain a 7-day streak.</p>
-</div>
-
-<div class="card">
-<h2>⭐ XP Hunter</h2>
-<p>Reach 1000 XP.</p>
-</div>
-
-<div class="card">
-<h2>🏆 Champion</h2>
-<p>Finish 100 workouts.</p>
-</div>
-
-<div class="card">
-<h2>👑 Fitness Legend</h2>
-<p>Reach Level 25.</p>
-</div>
-
-<div class="card">
-<h2>💯 Never Give Up</h2>
-<p>Complete 365 workouts.</p>
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ===========================
-PROFILE PAGE
-=========================== -->
-
-<div id="profile" class="page">
-
-<h1 class="section-title">
-👤 My Profile
-</h1>
-
-<div class="cards">
-
-<div class="card">
-
-<h2 id="profileName">
-Username
-</h2>
-
-<p id="profileEmail">
-Email
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>
-⭐ Total XP
-</h2>
-
-<h1 id="profileXP">
-0
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>
-🏅 Level
-</h2>
-
-<h1 id="profileLevel">
-1
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>
-🔥 Current Streak
-</h2>
-
-<h1 id="profileStreak">
-0 Days
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>
-💪 Workouts Completed
-</h2>
-
-<h1 id="profileWorkouts">
-0
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>
-🏆 Badges Earned
-</h2>
-
-<h1 id="profileBadges">
-0
-</h1>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ===========================
-SETTINGS PAGE
-=========================== -->
-
-<div id="settings" class="page">
-
-<h1 class="section-title">
-⚙️ Settings
-</h1>
-
-<div class="card">
-
-<h2>
-Personal Information
-</h2>
-
-<br>
-
-<label>Height</label>
-
-<input
-type="text"
-id="heightInput"
-placeholder="170 cm"
-style="width:100%;padding:12px;border-radius:10px;margin-top:8px;margin-bottom:15px;">
-
-<label>Weight</label>
-
-<input
-type="text"
-id="weightInput"
-placeholder="70 kg"
-style="width:100%;padding:12px;border-radius:10px;margin-top:8px;margin-bottom:15px;">
-
-<label>Fitness Goal</label>
-
-<select
-id="goalInput"
-style="width:100%;padding:12px;border-radius:10px;">
-
-<option>Build Muscle</option>
-
-<option>Lose Weight</option>
-
-<option>Stay Fit</option>
-
-<option>Gain Strength</option>
-
-</select>
-
-<br><br>
-
-<button
-class="action"
-onclick="saveProfile()">
-
-💾 Save Profile
-
-</button>
-
-</div>
-
-</div>
-
-<!-- ===========================
-LEADERBOARD PAGE
-=========================== -->
-
-<div id="leaderboard" class="page">
-
-<h1 class="section-title">
-🏆 Weekly Leaderboard
-</h1>
-
-<p class="section-text">
-Top players reset every week.
-Fight for the #1 spot!
-</p>
-
-<div class="card">
-
-<h2>🥇 Top Players</h2>
-
-<div id="leaderboardList">
-
-<div class="stat-card">
-<h3>Loading...</h3>
-<p>0 XP</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ===========================
-AWARDS PAGE
-=========================== -->
-
-<div id="awards" class="page">
-
-<h1 class="section-title">
-🏅 Achievements
-</h1>
-
-<p class="section-text">
-Unlock badges by staying active.
-</p>
-
-<div class="cards">
-
-<div class="card">
-<h2>🥉 First Workout</h2>
-<p>Complete your first workout.</p>
-</div>
-
-<div class="card">
-<h2>🔥 7 Day Warrior</h2>
-<p>Maintain a 7-day streak.</p>
-</div>
-
-<div class="card">
-<h2>⭐ XP Hunter</h2>
-<p>Reach 1000 XP.</p>
-</div>
-
-<div class="card">
-<h2>🏆 Champion</h2>
-<p>Finish 100 workouts.</p>
-</div>
-
-<div class="card">
-<h2>👑 Fitness Legend</h2>
-<p>Reach Level 25.</p>
-</div>
-
-<div class="card">
-<h2>💯 Never Give Up</h2>
-<p>Complete 365 workouts.</p>
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ===========================
-PROFILE PAGE
-=========================== -->
-
-<div id="profile" class="page">
-
-<h1 class="section-title">
-👤 My Profile
-</h1>
-
-<div class="cards">
-
-<div class="card">
-
-<h2 id="profileName">
-Username
-</h2>
-
-<p id="profileEmail">
-Email
-</p>
-
-</div>
-
-<div class="card">
-
-<h2>
-⭐ Total XP
-</h2>
-
-<h1 id="profileXP">
-0
-</h1>
-
 </div>
-
-<div class="card">
-
-<h2>
-🏅 Level
-</h2>
-
-<h1 id="profileLevel">
-1
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>
-🔥 Current Streak
-</h2>
-
-<h1 id="profileStreak">
-0 Days
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>
-💪 Workouts Completed
-</h2>
-
-<h1 id="profileWorkouts">
-0
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>
-🏆 Badges Earned
-</h2>
-
-<h1 id="profileBadges">
-0
-</h1>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ===========================
-SETTINGS PAGE
-=========================== -->
-
-<div id="settings" class="page">
-
-<h1 class="section-title">
-⚙️ Settings
-</h1>
-
-<div class="card">
-
-<h2>
-Personal Information
-</h2>
-
-<br>
-
-<label>Height</label>
-
-<input
-type="text"
-id="heightInput"
-placeholder="170 cm"
-style="width:100%;padding:12px;border-radius:10px;margin-top:8px;margin-bottom:15px;">
-
-<label>Weight</label>
-
-<input
-type="text"
-id="weightInput"
-placeholder="70 kg"
-style="width:100%;padding:12px;border-radius:10px;margin-top:8px;margin-bottom:15px;">
-
-<label>Fitness Goal</label>
-
-<select
-id="goalInput"
-style="width:100%;padding:12px;border-radius:10px;">
-
-<option>Build Muscle</option>
-
-<option>Lose Weight</option>
-
-<option>Stay Fit</option>
-
-<option>Gain Strength</option>
-
-</select>
-
-<br><br>
-
-<button
-class="action"
-onclick="saveProfile()">
-
-💾 Save Profile
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<script>
-
-<script>
-// ===============================
-// FITZONE V15
-// USER SYSTEM
-// ===============================
-
-let currentUser =
-JSON.parse(localStorage.getItem("currentUser"));
-
-if(!currentUser){
-
-window.location.href="login.html";
-
-}
-
-currentUser.username =
-currentUser.username || "User";
-
-currentUser.email =
-currentUser.email || "";
-
-currentUser.xp =
-currentUser.xp || 0;
-
-currentUser.level =
-currentUser.level || 1;
-
-currentUser.streak =
-currentUser.streak || 0;
-
-currentUser.workouts =
-currentUser.workouts || 0;
-
-currentUser.badges =
-currentUser.badges || [];
-
-currentUser.height =
-currentUser.height || "Not Set";
-
-currentUser.weight =
-currentUser.weight || "Not Set";
-
-currentUser.goal =
-currentUser.goal || "Stay Fit";
-
-currentUser.weeklyWorkouts =
-currentUser.weeklyWorkouts || 0;
-
-
-// ===============================
-// PAGE NAVIGATION
-// ===============================
-
-function showPage(page){
-
-document.querySelectorAll(".page")
-.forEach(function(p){
-
-p.style.display="none";
-
-});
-
-document.getElementById(page)
-.style.display="block";
-
-}
-
-
-// ===============================
-// LOAD USER
-// ===============================
-
-function loadUser(){
-
-document.getElementById("username")
-.innerHTML=currentUser.username;
-
-document.getElementById("xp")
-.innerHTML=currentUser.xp;
-
-document.getElementById("level")
-.innerHTML=currentUser.level;
-
-document.getElementById("streak")
-.innerHTML=currentUser.streak+" Days";
-
-document.getElementById("badgeCount")
-.innerHTML=currentUser.badges.length;
-
-document.getElementById("workoutsDone")
-.innerHTML=currentUser.workouts;
-
-document.getElementById("height")
-.innerHTML=currentUser.height;
-
-document.getElementById("weight")
-.innerHTML=currentUser.weight;
-
-document.getElementById("goal")
-.innerHTML=currentUser.goal;
-
-
-// PROFILE
-
-document.getElementById("profileName")
-.innerHTML=currentUser.username;
-
-document.getElementById("profileEmail")
-.innerHTML=currentUser.email;
-
-document.getElementById("profileXP")
-.innerHTML=currentUser.xp;
-
-document.getElementById("profileLevel")
-.innerHTML=currentUser.level;
-
-document.getElementById("profileStreak")
-.innerHTML=currentUser.streak+" Days";
-
-document.getElementById("profileWorkouts")
-.innerHTML=currentUser.workouts;
-
-document.getElementById("profileBadges")
-.innerHTML=currentUser.badges.length;
-
-
-// SETTINGS
-
-document.getElementById("heightInput")
-.value=currentUser.height;
-
-document.getElementById("weightInput")
-.value=currentUser.weight;
-
-document.getElementById("goalInput")
-.value=currentUser.goal;
-
-updateProgress();
-
-}
-
-loadUser();
-
-
-
-// ===============================
-// SAVE USER
-// ===============================
-
-function saveUser(){
-
-localStorage.setItem(
-
-"currentUser",
-
-JSON.stringify(currentUser)
-
-);
-
-}
-// ===============================
-// SAVE PROFILE
-// ===============================
-
-function saveProfile(){
-
-currentUser.height =
-document.getElementById("heightInput").value;
-
-currentUser.weight =
-document.getElementById("weightInput").value;
-
-currentUser.goal =
-document.getElementById("goalInput").value;
-
-saveUser();
-
-loadUser();
-
-alert("✅ Profile Updated!");
-
-}
-
-
-
-// ===============================
-// WEEKLY PROGRESS
-// ===============================
-
-function updateProgress(){
-
-let percent =
-(currentUser.weeklyWorkouts/7)*100;
-
-if(percent>100){
-
-percent=100;
-
-}
-
-document.getElementById("progressBar")
-.style.width=percent+"%";
-
-document.getElementById("progressText")
-.innerHTML=
-
-currentUser.weeklyWorkouts+
-
-" / 7 workouts completed this week";
-
-}
-
-
-
-// ===============================
-// XP & LEVEL SYSTEM
-// ===============================
-
-function addXP(amount){
-
-currentUser.xp += amount;
-
-
-
-if(currentUser.xp>=500 && currentUser.level<2){
-
-currentUser.level=2;
-
-alert("🎉 Level Up! Level 2");
-
-}
-
-
-
-if(currentUser.xp>=1000 && currentUser.level<3){
-
-currentUser.level=3;
-
-alert("🎉 Level Up! Level 3");
-
-}
-
-
-
-if(currentUser.xp>=2000 && currentUser.level<4){
-
-currentUser.level=4;
-
-alert("🎉 Level Up! Level 4");
-
-}
-
-
-
-if(currentUser.xp>=3500 && currentUser.level<5){
-
-currentUser.level=5;
-
-alert("👑 Level Up! Level 5");
-
-}
-
-}
-
-
-
-// ===============================
-// BADGE SYSTEM
-// ===============================
-
-function unlockBadge(name){
-
-if(!currentUser.badges.includes(name)){
-
-currentUser.badges.push(name);
-
-alert("🏅 Badge Unlocked!\n"+name);
-
-}
-
-}
-
-function checkBadges(){
-
-if(currentUser.workouts>=1){
-
-unlockBadge("🥉 First Workout");
-
-}
-
-if(currentUser.workouts>=10){
-
-unlockBadge("💪 Dedicated Athlete");
-
-}
-
-if(currentUser.streak>=7){
-
-unlockBadge("🔥 7 Day Warrior");
-
-}
-
-if(currentUser.xp>=1000){
-
-unlockBadge("⭐ XP Hunter");
-
-}
-
-if(currentUser.level>=5){
-
-unlockBadge("👑 Fitness Legend");
-
-}
-
-}
-
-
-
-// ===============================
-// SAVE EVERYTHING
-// ===============================
-
-function refreshDashboard(){
-
-checkBadges();
-
-saveUser();
-
-loadUser();
-
-}
-<!-- ================= FITZONE V15 PART 2C ================= -->
-
-<section class="workout-section">
-
-    <h2>🔥 Today's Workout</h2>
-
-    <div class="workout-card">
-        <h3>Full Body Blast</h3>
-        <p>30 Minutes • Beginner</p>
-
-        <ul>
-            <li>💪 Push Ups - 3 Sets</li>
-            <li>🏋️ Squats - 3 Sets</li>
-            <li>🔥 Plank - 60 Seconds</li>
-            <li>🏃 Jumping Jacks - 50 Reps</li>
-        </ul>
-
-        <button onclick="startWorkout()">Start Workout</button>
-
-    </div>
-
-
-    <div class="timer-box">
-
-        <h3>Workout Timer</h3>
-
-        <h1 id="timer">
-            00:00
-        </h1>
-
-        <button onclick="finishWorkout()">
-            Complete Workout ✅
-        </button>
-
-    </div>
-
-
-    <div class="progress-box">
-
-        <h3>Your Progress</h3>
-
-        <p>
-            ⭐ XP:
-            <span id="xp">0</span>
-        </p>
-
-        <p>
-            🔥 Streak:
-            <span id="streak">0</span> Days
-        </p>
-
-    </div>
-
-
-</section>
-
-
-
-<script>
-
-let seconds = 0;
-let timer;
-let xp = 0;
-let streak = 0;
-
-
-
-function startWorkout(){
-
-    clearInterval(timer);
-
-    timer = setInterval(()=>{
-
-        seconds++;
-
-        let mins = Math.floor(seconds / 60);
-        let secs = seconds % 60;
-
-
-        document.getElementById("timer").innerHTML =
-        String(mins).padStart(2,"0")
-        + ":" +
-        String(secs).padStart(2,"0");
-
-
-    },1000);
-
-
-}
-
-
-
-function finishWorkout(){
-
-    clearInterval(timer);
-
-
-    xp += 100;
-    streak += 1;
-
-
-    document.getElementById("xp").innerHTML = xp;
-
-    document.getElementById("streak").innerHTML = streak;
-
-
-
-    alert(
-        "🔥 Workout Complete!\n+100 XP Earned!"
-    );
-
-
-    seconds = 0;
-
-
-}
-
-
-
-</script>
