@@ -207,3 +207,236 @@ margin-top:15px;
 background:#16a34a;
 
 }
+.stats-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+gap:20px;
+
+margin-top:30px;
+
+}
+
+.stat-card{
+
+background:#111827;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+border:1px solid rgba(34,197,94,.25);
+
+}
+
+.stat-card h3{
+
+font-size:16px;
+
+margin-bottom:10px;
+
+color:#cbd5e1;
+
+}
+
+.stat-card p{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#22c55e;
+
+}
+
+.section-title{
+
+font-size:28px;
+
+margin-bottom:10px;
+
+}
+
+.section-text{
+
+color:#94a3b8;
+
+margin-bottom:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+💪 FITZONE
+
+</div>
+
+<button onclick="showPage('dashboard')">
+
+🏠 Dashboard
+
+</button>
+
+<button onclick="showPage('workouts')">
+
+💪 Workouts
+
+</button>
+
+<button onclick="showPage('leaderboard')">
+
+🏆 Leaderboard
+
+</button>
+
+<button onclick="showPage('awards')">
+
+🏅 Awards
+
+</button>
+
+<button onclick="showPage('profile')">
+
+👤 Profile
+
+</button>
+
+<button onclick="showPage('settings')">
+
+⚙️ Settings
+
+</button>
+
+<button onclick="logout()">
+
+🚪 Logout
+
+</button>
+
+</div>
+
+<div class="main">
+
+<div id="dashboard" class="page">
+
+<h1 class="section-title">
+
+Welcome,
+
+<span id="username">
+
+User
+
+</span>
+
+👋
+
+</h1>
+
+<p class="section-text">
+
+Ready to smash today's workout?
+
+</p>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+
+<h3>⭐ XP</h3>
+
+<p id="xp">
+
+0
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3>🏅 Level</h3>
+
+<p id="level">
+
+1
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3>🔥 Streak</h3>
+
+<p id="streak">
+
+0 Days
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3>🏆 Badges</h3>
+
+<p id="badgeCount">
+
+0
+
+</p>
+
+</div>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h2>Today's Goal</h2>
+
+<p id="goalText">
+
+Complete one workout today.
+
+</p>
+
+<button class="action" onclick="showPage('workouts')">
+
+Start Workout
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Progress</h2>
+
+<p>
+
+Completed Workouts
+
+</p>
+
+<h1 id="workoutsDone">
+
+0
+
+</h1>
+
+</div>
