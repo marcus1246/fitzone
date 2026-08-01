@@ -1478,3 +1478,174 @@ JSON.stringify(currentUser)
 );
 
 }
+// ===============================
+// SAVE PROFILE
+// ===============================
+
+function saveProfile(){
+
+currentUser.height =
+document.getElementById("heightInput").value;
+
+currentUser.weight =
+document.getElementById("weightInput").value;
+
+currentUser.goal =
+document.getElementById("goalInput").value;
+
+saveUser();
+
+loadUser();
+
+alert("✅ Profile Updated!");
+
+}
+
+
+
+// ===============================
+// WEEKLY PROGRESS
+// ===============================
+
+function updateProgress(){
+
+let percent =
+(currentUser.weeklyWorkouts/7)*100;
+
+if(percent>100){
+
+percent=100;
+
+}
+
+document.getElementById("progressBar")
+.style.width=percent+"%";
+
+document.getElementById("progressText")
+.innerHTML=
+
+currentUser.weeklyWorkouts+
+
+" / 7 workouts completed this week";
+
+}
+
+
+
+// ===============================
+// XP & LEVEL SYSTEM
+// ===============================
+
+function addXP(amount){
+
+currentUser.xp += amount;
+
+
+
+if(currentUser.xp>=500 && currentUser.level<2){
+
+currentUser.level=2;
+
+alert("🎉 Level Up! Level 2");
+
+}
+
+
+
+if(currentUser.xp>=1000 && currentUser.level<3){
+
+currentUser.level=3;
+
+alert("🎉 Level Up! Level 3");
+
+}
+
+
+
+if(currentUser.xp>=2000 && currentUser.level<4){
+
+currentUser.level=4;
+
+alert("🎉 Level Up! Level 4");
+
+}
+
+
+
+if(currentUser.xp>=3500 && currentUser.level<5){
+
+currentUser.level=5;
+
+alert("👑 Level Up! Level 5");
+
+}
+
+}
+
+
+
+// ===============================
+// BADGE SYSTEM
+// ===============================
+
+function unlockBadge(name){
+
+if(!currentUser.badges.includes(name)){
+
+currentUser.badges.push(name);
+
+alert("🏅 Badge Unlocked!\n"+name);
+
+}
+
+}
+
+function checkBadges(){
+
+if(currentUser.workouts>=1){
+
+unlockBadge("🥉 First Workout");
+
+}
+
+if(currentUser.workouts>=10){
+
+unlockBadge("💪 Dedicated Athlete");
+
+}
+
+if(currentUser.streak>=7){
+
+unlockBadge("🔥 7 Day Warrior");
+
+}
+
+if(currentUser.xp>=1000){
+
+unlockBadge("⭐ XP Hunter");
+
+}
+
+if(currentUser.level>=5){
+
+unlockBadge("👑 Fitness Legend");
+
+}
+
+}
+
+
+
+// ===============================
+// SAVE EVERYTHING
+// ===============================
+
+function refreshDashboard(){
+
+checkBadges();
+
+saveUser();
+
+loadUser();
+
+}
