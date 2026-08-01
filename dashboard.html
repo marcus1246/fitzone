@@ -883,3 +883,89 @@ localStorage.removeItem("currentUser");
 window.location.href="login.html";
 
 }
+// ======================================
+// PART 4B
+// XP & LEVEL SYSTEM
+// ======================================
+
+// XP required per level
+const LEVEL_XP = 500;
+
+// Refresh dashboard numbers
+function refreshDashboard(){
+
+document.getElementById("xp").textContent =
+currentUser.xp;
+
+document.getElementById("level").textContent =
+currentUser.level;
+
+document.getElementById("streak").textContent =
+currentUser.streak + " Days";
+
+document.getElementById("badges").textContent =
+currentUser.badges.length;
+
+document.getElementById("profileXP").textContent =
+currentUser.xp;
+
+document.getElementById("profileLevel").textContent =
+currentUser.level;
+
+document.getElementById("profileWorkouts").textContent =
+currentUser.workouts;
+
+document.getElementById("weeklyWorkouts").textContent =
+currentUser.weeklyWorkouts + " / 7";
+
+saveUser();
+
+}
+
+// Add XP
+function addXP(amount){
+
+currentUser.xp += amount;
+
+// Level up automatically
+while(currentUser.xp >= currentUser.level * LEVEL_XP){
+
+currentUser.level++;
+
+alert(
+"🎉 Congratulations!\n\nYou reached Level " +
+currentUser.level +
+"!"
+);
+
+}
+
+refreshDashboard();
+
+}
+
+// Remove XP (optional)
+function removeXP(amount){
+
+currentUser.xp -= amount;
+
+if(currentUser.xp < 0){
+
+currentUser.xp = 0;
+
+}
+
+refreshDashboard();
+
+}
+
+// Reset XP (optional)
+function resetXP(){
+
+currentUser.xp = 0;
+
+currentUser.level = 1;
+
+refreshDashboard();
+
+}
