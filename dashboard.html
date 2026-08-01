@@ -969,3 +969,151 @@ currentUser.level = 1;
 refreshDashboard();
 
 }
+// ======================================
+// PART 4C
+// WORKOUT SYSTEM
+// ======================================
+
+let currentWorkout = "";
+let currentXP = 0;
+
+// Start workout
+function startWorkout(name, xp){
+
+currentWorkout = name;
+
+currentXP = xp;
+
+let finish = confirm(
+
+"🏋️ Workout: " + name +
+"\n\nReward: " + xp + " XP" +
+"\n\nPress OK after completing your workout."
+
+);
+
+if(finish){
+
+finishWorkout();
+
+}
+
+}
+
+// Finish workout
+function finishWorkout(saveUser();checkBadges();){
+
+// Add XP
+addXP(currentXP);
+
+// Increase workout count
+currentUser.workouts =
+(currentUser.workouts || 0) + 1;
+
+// Weekly workouts
+currentUser.weeklyWorkouts =
+(currentUser.weeklyWorkouts || 0) + 1;
+
+// Daily streak
+updateStreak();
+
+// Refresh profile
+document.getElementById("profileWorkouts")
+.textContent =
+currentUser.workouts;
+
+// Save everything
+saveUser();
+
+refreshDashboard();
+
+alert(
+"🎉 Workout Complete!\n\n" +
+"+" + currentXP + " XP"
+);
+
+}
+
+// ======================================
+// STREAK SYSTEM
+// ======================================
+
+function updateStreak(){
+
+let today =
+new Date().toDateString();
+
+let lastWorkout =
+currentUser.lastWorkoutDate || "";
+
+// First workout
+if(lastWorkout === ""){
+
+currentUser.streak = 1;
+
+}
+
+// New day
+else if(lastWorkout !== today){
+
+currentUser.streak =
+(currentUser.streak || 0) + 1;
+
+}
+
+currentUser.lastWorkoutDate = today;
+
+}
+
+// ======================================
+// BADGES
+// ======================================
+
+if(!currentUser.badges){
+
+currentUser.badges = [];
+
+}
+
+function unlockBadge(name){
+
+if(!currentUser.badges.includes(name)){
+
+currentUser.badges.push(name);
+
+alert(
+"🏅 New Badge!\n\n" + name
+);
+
+}
+
+}
+
+// Check badges
+function checkBadges(){
+
+if(currentUser.workouts >= 1){
+
+unlockBadge("🥉 First Workout");
+
+}
+
+if(currentUser.streak >= 7){
+
+unlockBadge("🔥 7 Day Streak");
+
+}
+
+if(currentUser.xp >= 1000){
+
+unlockBadge("⭐ XP Hunter");
+
+}
+
+if(currentUser.level >= 10){
+
+unlockBadge("👑 Fitness Legend");
+
+}
+
+}
