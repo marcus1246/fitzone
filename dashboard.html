@@ -1074,6 +1074,248 @@ onclick="saveProfile()">
 
 </div>
 
+<!-- ===========================
+LEADERBOARD PAGE
+=========================== -->
 
+<div id="leaderboard" class="page">
+
+<h1 class="section-title">
+🏆 Weekly Leaderboard
+</h1>
+
+<p class="section-text">
+Top players reset every week.
+Fight for the #1 spot!
+</p>
+
+<div class="card">
+
+<h2>🥇 Top Players</h2>
+
+<div id="leaderboardList">
+
+<div class="stat-card">
+<h3>Loading...</h3>
+<p>0 XP</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ===========================
+AWARDS PAGE
+=========================== -->
+
+<div id="awards" class="page">
+
+<h1 class="section-title">
+🏅 Achievements
+</h1>
+
+<p class="section-text">
+Unlock badges by staying active.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h2>🥉 First Workout</h2>
+<p>Complete your first workout.</p>
+</div>
+
+<div class="card">
+<h2>🔥 7 Day Warrior</h2>
+<p>Maintain a 7-day streak.</p>
+</div>
+
+<div class="card">
+<h2>⭐ XP Hunter</h2>
+<p>Reach 1000 XP.</p>
+</div>
+
+<div class="card">
+<h2>🏆 Champion</h2>
+<p>Finish 100 workouts.</p>
+</div>
+
+<div class="card">
+<h2>👑 Fitness Legend</h2>
+<p>Reach Level 25.</p>
+</div>
+
+<div class="card">
+<h2>💯 Never Give Up</h2>
+<p>Complete 365 workouts.</p>
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ===========================
+PROFILE PAGE
+=========================== -->
+
+<div id="profile" class="page">
+
+<h1 class="section-title">
+👤 My Profile
+</h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h2 id="profileName">
+Username
+</h2>
+
+<p id="profileEmail">
+Email
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+⭐ Total XP
+</h2>
+
+<h1 id="profileXP">
+0
+</h1>
+
+</div>
+
+<div class="card">
+
+<h2>
+🏅 Level
+</h2>
+
+<h1 id="profileLevel">
+1
+</h1>
+
+</div>
+
+<div class="card">
+
+<h2>
+🔥 Current Streak
+</h2>
+
+<h1 id="profileStreak">
+0 Days
+</h1>
+
+</div>
+
+<div class="card">
+
+<h2>
+💪 Workouts Completed
+</h2>
+
+<h1 id="profileWorkouts">
+0
+</h1>
+
+</div>
+
+<div class="card">
+
+<h2>
+🏆 Badges Earned
+</h2>
+
+<h1 id="profileBadges">
+0
+</h1>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ===========================
+SETTINGS PAGE
+=========================== -->
+
+<div id="settings" class="page">
+
+<h1 class="section-title">
+⚙️ Settings
+</h1>
+
+<div class="card">
+
+<h2>
+Personal Information
+</h2>
+
+<br>
+
+<label>Height</label>
+
+<input
+type="text"
+id="heightInput"
+placeholder="170 cm"
+style="width:100%;padding:12px;border-radius:10px;margin-top:8px;margin-bottom:15px;">
+
+<label>Weight</label>
+
+<input
+type="text"
+id="weightInput"
+placeholder="70 kg"
+style="width:100%;padding:12px;border-radius:10px;margin-top:8px;margin-bottom:15px;">
+
+<label>Fitness Goal</label>
+
+<select
+id="goalInput"
+style="width:100%;padding:12px;border-radius:10px;">
+
+<option>Build Muscle</option>
+
+<option>Lose Weight</option>
+
+<option>Stay Fit</option>
+
+<option>Gain Strength</option>
+
+</select>
+
+<br><br>
+
+<button
+class="action"
+onclick="saveProfile()">
+
+💾 Save Profile
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<script>
 
 <script>
